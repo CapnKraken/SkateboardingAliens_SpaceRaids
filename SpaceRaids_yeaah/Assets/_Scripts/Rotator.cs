@@ -7,7 +7,7 @@ using UnityEngine;
 public class Rotator : MonoBehaviour
 {
     
-    //public Vector3 rotationVelocity;
+    public Vector3 rotationVelocity;
 
     // Update is called once per frame
     void Update()
