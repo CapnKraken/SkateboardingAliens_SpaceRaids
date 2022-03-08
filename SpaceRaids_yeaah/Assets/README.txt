@@ -10,7 +10,17 @@ Method names and Class names: CamelCase with uppercase first letter.
 Keep code decoupled as much as possible.
 If you need something to happen in one script as a result of something that happens in a different script, use the messsaging system.
 
+Make sure to put you name at the top of all scipts you create.
 
+Comment religously, make sure it is clear what everything does. 
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+GitHub Practices
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Everytime you are starting a new feature make sure to do it in a separate branch. When that feature is finished, they you can push it to the main branch. 
+Naming Convention:
+"Your name", "Feature Title"
+
+Make sure to give a detailed description of what you changed. You don't have to push every time you commit, push once you are done with your coding session.
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 Messaging System
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
