@@ -13,6 +13,7 @@ If you need something to happen in one script as a result of something that happ
 Make sure to put you name at the top of all scipts you create.
 
 Comment religously, make sure it is clear what everything does. 
+Even if it seems obvious to you, comment anyway. Programmers can be extremely thick-headed at times (that includes future you).
 
 Summaries are your friend. For example:
 
@@ -49,7 +50,7 @@ Messaging System
 
 ManagedObject:
 -The script representing a gameObject which can send and receive messages through the messenger.
--Use it as the parent of any script in which you want to send or respond to messages.
+-Use it as the base class of any script in which you want to send or respond to messages.
 
 -Don't use Unity's Start() and OnDestroy() methods in managed objects.
 -Instead use the inherited methods Initialize() and DeInitialize(). They do the same thing.
