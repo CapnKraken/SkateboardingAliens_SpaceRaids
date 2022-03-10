@@ -28,27 +28,12 @@ public class GuiSwap : MonoBehaviour
     {
         if(inputSystem.toggleGUI == 2)
         {
-            if (GUIcanvas.enabled)
-            {
-                paused = false;
-
-            }
-            else
-            {
-                paused = true;
-
-            }
+            paused = !GUIcanvas.enabled;
             GUIcanvas.enabled = !GUIcanvas.enabled;   
         }
 
-        if (paused)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
+        //if paused, set timescale to 0, else set it to 1
+        Time.timeScale = paused ? 0 : 1;
     }
 
     public void SwapGui(int newGui)

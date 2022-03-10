@@ -1,7 +1,20 @@
+//Matthew Watson
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/*WHAT IS NOW:
+ *  all inputs are variables
+ *  accepted input type is hard coded using if statements
+ *  control profiles are hard-coded in.
+ *
+ *WHAT IS NEEDED:
+ *  inputs should be dynamically added
+ *  
+ *HOW TO DO IT:
+ */
 
 //This script will convert the various actual inputs (depending on the profile and settings) into variables that are passed into the actual control scripts.
 //It contains an array of 3 objects of type ControlProfile, //which each contain a dictionary of input translations (things like "shoot", "walkForward", etc) which correspond to actual inputs (axes, buttons, keys)
@@ -214,8 +227,15 @@ public class InputSystem : MonoBehaviour
             {
                 string s = GetKeyPressed();
                 string sAvail = CheckAvailability(s);
+                Debug.Log($"{sAvail}, {inputToRebind}");
 
-                if (sAvail == inputToRebind)
+                //having the mouse click to toggle gui doesn't work since it clashes with the clicking of the buttons. 
+                //So I just disable it here.
+                if(s == "mouse 0" && inputToRebind == "toggleGUI")
+                {
+                    isRebindingInputs = false;
+                }
+                else if (sAvail == inputToRebind)
                 {
                     //Debug.Log(inputToRebind);
                     gi.inputName = s;
