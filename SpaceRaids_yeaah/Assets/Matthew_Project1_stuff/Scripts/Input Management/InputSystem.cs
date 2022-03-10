@@ -32,7 +32,9 @@ public class InputSystem : MonoBehaviour
     //The input translation of what's being changed
     private string inputToRebind;
 
-    //this is a dummy input which I use to store values in before applying them to the actual profile
+    /// <summary>
+    /// this is a dummy input which I use to store values in before applying them to the actual profile
+    /// </summary>
     private GameInput gi;
     void Start()
     {
@@ -97,6 +99,7 @@ public class InputSystem : MonoBehaviour
     {
         if (!isRebindingInputs)
         {
+            #region Update inputs during game
             //CAMERA INPUT
             cameraHorizontal = HandleMovementInput("cameraRight", "cameraLeft", false);
 
@@ -117,9 +120,12 @@ public class InputSystem : MonoBehaviour
             //ACTION INPUT
             shoot = HandleActionInput(shoot, "shoot");
             toggleGUI = HandleActionInput(toggleGUI, "toggleGUI");
+
+            #endregion
         }
         else //input rebinding
         {
+            #region Rebind inputs
             if (profiles[currentProfile].isGamepad)
             //If we're rebinding a gamepad, we need to deal with both axes and buttons
             {
@@ -230,6 +236,8 @@ public class InputSystem : MonoBehaviour
                     isRebindingInputs = false;
                 }
             }
+
+            #endregion
         }
     }
 
@@ -484,8 +492,8 @@ public class InputSystem : MonoBehaviour
 
     public string GetAxisPressed()
     {
-        //Only using 10 axes, so don't need to define any more
-        for (int i = 0; i < 10; i++)
+        //Only using 11 axes, so don't need to define any more
+        for (int i = 0; i < 11; i++)
         {
             if (Mathf.Abs(Input.GetAxis($"Axis {i + 1}")) >= 0.7f)
             {
@@ -617,6 +625,13 @@ public class InputSystem : MonoBehaviour
  "right ctrl",
  "left ctrl",
  "right alt",
- "left alt"
+ "left alt",
+ "mouse 0",
+ "mouse 1",
+ "mouse 2",
+ "mouse 3",
+ "mouse 4",
+ "mouse 5",
+ "mouse 6"
     };
 }
