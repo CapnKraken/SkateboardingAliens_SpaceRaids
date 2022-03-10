@@ -23,7 +23,7 @@ public class InputButtonText : MonoBehaviour
             if(inputSystem.currentProfile == profile)
             {
                 //update the button's text to the current input's actual input name
-                text.text = inputSystem.profiles[inputSystem.currentProfile].GetInputs()[inputName].inputName;
+                text.text = inputSystem.profiles[inputSystem.currentProfile].GetInputs()[inputName].inputID;
             }
         }
     }

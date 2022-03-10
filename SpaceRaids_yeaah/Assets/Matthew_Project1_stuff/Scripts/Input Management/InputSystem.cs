@@ -11,7 +11,8 @@ using UnityEngine.UI;
  *  control profiles are hard-coded in.
  *
  *WHAT IS NEEDED:
- *  inputs should be dynamically added
+ *  inputs should be dynamically added in inspector
+ *  Control profile should be built in the inspector
  *  
  *HOW TO DO IT:
  */
@@ -156,7 +157,7 @@ public class InputSystem : MonoBehaviour
 
                     if (aAvail == inputToRebind)
                     {
-                        gi.inputName = a;
+                        gi.inputID = a;
                         gi.inputType = InputType.Axis;
                         profiles[currentProfile].ChangeInput(inputToRebind, gi);
                         isRebindingInputs = false;
@@ -164,11 +165,11 @@ public class InputSystem : MonoBehaviour
                     else if (aAvail != "none")
                     {
                         //if the name is already taken, swap the inputs
-                        gi.inputName = profiles[currentProfile].GetInputs()[inputToRebind].inputName;
+                        gi.inputID = profiles[currentProfile].GetInputs()[inputToRebind].inputID;
                         gi.inputType = profiles[currentProfile].GetInputs()[inputToRebind].inputType;
                         profiles[currentProfile].ChangeInput(aAvail, gi);
 
-                        gi.inputName = a;
+                        gi.inputID = a;
                         gi.inputType = InputType.Axis;
                         profiles[currentProfile].ChangeInput(inputToRebind, gi);
                         isRebindingInputs = false;
@@ -176,7 +177,7 @@ public class InputSystem : MonoBehaviour
 
                     if (bAvail == inputToRebind)
                     {
-                        gi.inputName = b;
+                        gi.inputID = b;
                         gi.inputType = InputType.Button;
                         profiles[currentProfile].ChangeInput(inputToRebind, gi);
                         isRebindingInputs = false;
@@ -184,11 +185,11 @@ public class InputSystem : MonoBehaviour
                     else if (bAvail != "none")
                     {
                         //if the name is already taken, swap the inputs
-                        gi.inputName = profiles[currentProfile].GetInputs()[inputToRebind].inputName;
+                        gi.inputID = profiles[currentProfile].GetInputs()[inputToRebind].inputID;
                         gi.inputType = profiles[currentProfile].GetInputs()[inputToRebind].inputType;
                         profiles[currentProfile].ChangeInput(bAvail, gi);
 
-                        gi.inputName = b;
+                        gi.inputID = b;
                         gi.inputType = InputType.Button;
                         profiles[currentProfile].ChangeInput(inputToRebind, gi);
                         isRebindingInputs = false;
@@ -203,7 +204,7 @@ public class InputSystem : MonoBehaviour
 
                     if (aAvail == inputToRebind)
                     {
-                        gi.inputName = a;
+                        gi.inputID = a;
                         gi.inputType = InputType.Axis;
                         profiles[currentProfile].ChangeInput(inputToRebind, gi);
                         isRebindingInputs = false;
@@ -211,11 +212,11 @@ public class InputSystem : MonoBehaviour
                     else if (aAvail != "none")
                     {
                         //if the name is already taken, swap the inputs
-                        gi.inputName = profiles[currentProfile].GetInputs()[inputToRebind].inputName;
+                        gi.inputID = profiles[currentProfile].GetInputs()[inputToRebind].inputID;
                         gi.inputType = InputType.Axis;
                         profiles[currentProfile].ChangeInput(aAvail, gi);
 
-                        gi.inputName = a;
+                        gi.inputID = a;
                         gi.inputType = InputType.Axis;
                         profiles[currentProfile].ChangeInput(inputToRebind, gi);
                         isRebindingInputs = false;
@@ -238,7 +239,7 @@ public class InputSystem : MonoBehaviour
                 else if (sAvail == inputToRebind)
                 {
                     //Debug.Log(inputToRebind);
-                    gi.inputName = s;
+                    gi.inputID = s;
                     gi.inputType = InputType.Key;
                     profiles[currentProfile].ChangeInput(inputToRebind, gi);
                     isRebindingInputs = false;
@@ -246,11 +247,11 @@ public class InputSystem : MonoBehaviour
                 else if (s != "none")
                 {
                     //if the name is already taken, swap the inputs
-                    gi.inputName = profiles[currentProfile].GetInputs()[inputToRebind].inputName;
+                    gi.inputID = profiles[currentProfile].GetInputs()[inputToRebind].inputID;
                     gi.inputType = InputType.Key;
                     profiles[currentProfile].ChangeInput(sAvail, gi);
 
-                    gi.inputName = s;
+                    gi.inputID = s;
                     gi.inputType = InputType.Key;
                     profiles[currentProfile].ChangeInput(inputToRebind, gi);
                     isRebindingInputs = false;
@@ -269,7 +270,7 @@ public class InputSystem : MonoBehaviour
             //Iterate through the profile to make sure the requested input isn't being used already
             foreach (KeyValuePair<string, GameInput> keyValPair in profiles[currentProfile].GetInputs())
             {
-                if (keyValPair.Value.inputName == s)
+                if (keyValPair.Value.inputID == s)
                 {
                     //If the input is already in use, return the input it's going to replace
                     return keyValPair.Key;
@@ -316,12 +317,12 @@ public class InputSystem : MonoBehaviour
             if (gameInput.isAxisInverted)
             {
                 //All of the axes on profile 3 have the option to invert, just in case there's any funkiness with a controller.
-                return 0 - Input.GetAxis(profiles[currentProfile].GetInputs()[positiveMotion].inputName);
+                return 0 - Input.GetAxis(profiles[currentProfile].GetInputs()[positiveMotion].inputID);
             }
             else
             {
                 //If the input is an axis, there is no need for a negative input: positiveMotion is set to Input.GetAxis(-whatever axis-), so it's -1 to 1
-                return Input.GetAxis(profiles[currentProfile].GetInputs()[positiveMotion].inputName);
+                return Input.GetAxis(profiles[currentProfile].GetInputs()[positiveMotion].inputID);
             }
         }
         else
@@ -334,18 +335,18 @@ public class InputSystem : MonoBehaviour
             if (profiles[currentProfile].isGamepad)
             //If the profile is for a controller, use buttons. If not, use keys.
             {
-                if (Input.GetButton(profiles[currentProfile].GetInputs()[positiveMotion].inputName))
+                if (Input.GetButton(profiles[currentProfile].GetInputs()[positiveMotion].inputID))
                     total++;
 
-                if (Input.GetButton(profiles[currentProfile].GetInputs()[negativeMotion].inputName))
+                if (Input.GetButton(profiles[currentProfile].GetInputs()[negativeMotion].inputID))
                     total--;
             }
             else
             {
-                if (Input.GetKey(profiles[currentProfile].GetInputs()[positiveMotion].inputName))
+                if (Input.GetKey(profiles[currentProfile].GetInputs()[positiveMotion].inputID))
                     total++;
 
-                if (Input.GetKey(profiles[currentProfile].GetInputs()[negativeMotion].inputName))
+                if (Input.GetKey(profiles[currentProfile].GetInputs()[negativeMotion].inputID))
                     total--;
             }
 
@@ -384,7 +385,7 @@ public class InputSystem : MonoBehaviour
         //  if not, return 1
         if (i.inputType == InputType.Axis)
         {
-            float f = Input.GetAxis(i.inputName);
+            float f = Input.GetAxis(i.inputID);
 
 
 
@@ -410,7 +411,7 @@ public class InputSystem : MonoBehaviour
         {
             if (profiles[currentProfile].isGamepad)
             {
-                if (Input.GetButton(i.inputName))
+                if (Input.GetButton(i.inputID))
                 {
                     if (currentState == 0)
                     {
@@ -428,7 +429,7 @@ public class InputSystem : MonoBehaviour
             }
             else
             {
-                if (Input.GetKey(i.inputName))
+                if (Input.GetKey(i.inputID))
                 {
                     if (currentState == 0)
                     {

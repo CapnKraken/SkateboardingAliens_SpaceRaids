@@ -996,6 +996,69 @@ MonoBehaviour:
   walkSide: 0
   shoot: 0
   toggleGUI: 0
+  profiles:
+  - isGamepad: 0
+    cameraMovementSensitivity: 2000
+    listInputs:
+    - actionName: cameraRight
+      inputData:
+        inputID: Mouse X
+        inputType: 0
+        isAxisInverted: 0
+    - actionName: cameraLeft
+      inputData:
+        inputID: 
+        inputType: 3
+        isAxisInverted: 0
+    - actionName: cameraUp
+      inputData:
+        inputID: Mouse Y
+        inputType: 0
+        isAxisInverted: 0
+    - actionName: cameraDown
+      inputData:
+        inputID: 
+        inputType: 3
+        isAxisInverted: 0
+    - actionName: walkForward
+      inputData:
+        inputID: w
+        inputType: 2
+        isAxisInverted: 0
+    - actionName: walkBackward
+      inputData:
+        inputID: s
+        inputType: 2
+        isAxisInverted: 0
+    - actionName: strafeRight
+      inputData:
+        inputID: d
+        inputType: 2
+        isAxisInverted: 0
+    - actionName: strafeLeft
+      inputData:
+        inputID: a
+        inputType: 2
+        isAxisInverted: 0
+    - actionName: shoot
+      inputData:
+        inputID: mouse 0
+        inputType: 2
+        isAxisInverted: 0
+    - actionName: toggleGUI
+      inputData:
+        inputID: space
+        inputType: 2
+        isAxisInverted: 0
+    invertYAxis: 0
+  - isGamepad: 0
+    cameraMovementSensitivity: 2000
+    listInputs: []
+    invertYAxis: 0
+  - isGamepad: 0
+    cameraMovementSensitivity: 2000
+    listInputs: []
+    invertYAxis: 0
   currentProfile: 0
   cameraSensitivitySlider: {fileID: 1637773201}
 --- !u!114 &137879121

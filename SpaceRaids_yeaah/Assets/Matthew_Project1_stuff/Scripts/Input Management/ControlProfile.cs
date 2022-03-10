@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class ControlProfile 
 {
     /* INPUTS:
@@ -25,6 +26,11 @@ public class ControlProfile
 
     public float cameraMovementSensitivity; //multiplier to change how much the camera moves in response to a directional input
 
+    /// <summary>
+    /// The list that shows up in the inspector. Dictionaries aren't serializable so this is part of a workaround.
+    /// </summary>
+    public List<KeyValPair> listInputs;
+    
     private Dictionary<string, GameInput> inputs; //Create the dictionary to store the inputs
 
     public bool invertYAxis; //toggle for inverting the y axis for camera movement
@@ -38,6 +44,7 @@ public class ControlProfile
 
         cameraMovementSensitivity = 2000;
 
+        /*
         inputs = new Dictionary<string, GameInput>()
         {
             {"cameraRight", new GameInput("Mouse X", InputType.Axis)},
@@ -53,6 +60,13 @@ public class ControlProfile
             {"shoot", new GameInput("mouse 0", InputType.Key)},
             {"toggleGUI", new GameInput("space", InputType.Key)},
         };
+        */
+
+        inputs = new Dictionary<string, GameInput>();
+        foreach (KeyValPair pair in listInputs)
+        {
+            inputs.Add(pair.actionName, pair.inputData);
+        }
     }
 
     public ControlProfile(bool isGamepad, float cameraSensitivity, Dictionary<string, GameInput> inputs)
@@ -79,8 +93,16 @@ public class ControlProfile
         return inputs;
     }
 
+    [System.Serializable]
+    public struct KeyValPair
+    {
+        [Tooltip("Your name for the action.")]
+        public string actionName;
+        public GameInput inputData;
+    }
 }
 
 //The GameInput objects use this type
 public enum InputType {Axis, Button, Key, Null}
+
 
