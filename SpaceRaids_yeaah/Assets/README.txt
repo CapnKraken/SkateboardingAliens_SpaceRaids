@@ -33,6 +33,7 @@ GitHub Practices
 Everytime you are starting a new feature, make sure to do it in a new, separate branch. When that feature is finished, then you can push it to the main branch. 
 	This isn't just for new features, but any change at all. Do not work directly on the main branch. The github app tells you at the top left-ish what the current branch is.
 	Make sure that isn't "main."
+If you make changes before creating your new branch, make sure to select the option to move the changes to your new branch when creating it.
 
 Naming Convention for Branches:
 "Your name_Feature Title"
