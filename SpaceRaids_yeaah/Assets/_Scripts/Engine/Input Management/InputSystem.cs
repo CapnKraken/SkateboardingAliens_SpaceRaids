@@ -370,11 +370,16 @@ public class InputSystem : MonoBehaviour
         {
             float f = Input.GetAxis(i.inputName);
 
-
-
             if (f == 0)
             {
-                return 0;
+                if(currentState == 1)
+                {
+                    return 3;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             else //since it's an action input, we don't care how much the axis is pressed, just that it is.
             {
@@ -407,7 +412,14 @@ public class InputSystem : MonoBehaviour
                 }
                 else
                 {
-                    return 0;
+                    if (currentState == 1)
+                    {
+                        return 3;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
             else
@@ -425,7 +437,14 @@ public class InputSystem : MonoBehaviour
                 }
                 else
                 {
-                    return 0;
+                    if (currentState == 1)
+                    {
+                        return 3;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
         }

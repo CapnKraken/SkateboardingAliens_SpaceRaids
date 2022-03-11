@@ -67,6 +67,15 @@ Notifications:
 -Other data can be incorporated into the message if necessary.
 	For instance: "DamagePlayer 12". String.Split()[0] can be used to separate the message from the values also sent.
 
+This system uses a GameManager object
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Input System
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 If you have any questions about any of this (or suggestions to add), post them in the discord.

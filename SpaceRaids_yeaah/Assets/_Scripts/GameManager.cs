@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public Messenger messenger;
 
+    /// <summary>
+    /// The object to control pausing and unpausing.
+    /// </summary>
+    public PauseManager pauseManager;
+
 
     #region Singleton
 
@@ -44,34 +49,16 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region Ticker List
-    /// <summary>
-    /// List of objects that need determinstic updates.
-    /// </summary>
-    private List<ManagedObject> managedObjects;
-
-    public void AddTicker(ManagedObject t)
-    {
-        managedObjects.Add(t);
-    }
-
-    public void RemoveTicker(ManagedObject t)
-    {
-        managedObjects.Remove(t);
-    }
-    #endregion
 
     /// <summary>
-    /// Called after creating the singleton. Place setup information here.<br/>
-    /// Keep it to a minimum, please, future me.
+    /// Called after creating the singleton. Place setup information here.
     /// </summary>
     private void Initialize()
     {
         //construct the messenger
         messenger = new Messenger();
 
-        //initialize the ticker list
-        managedObjects = new List<ManagedObject>();
+        pauseManager = GetComponent<PauseManager>();
     }
 
     #region Screen Setup
@@ -102,7 +89,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// In this method, update all notifiable objects and the messenger.
+    /// In this method, update the messenger.
     /// </summary>
     private void Update()
     {
