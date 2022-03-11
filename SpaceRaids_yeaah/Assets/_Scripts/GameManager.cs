@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public PauseManager pauseManager;
 
+    /// <summary>
+    /// The game's input manager.
+    /// </summary>
+    public InputSystem inputSystem;
+
 
     #region Singleton
 
@@ -59,6 +64,8 @@ public class GameManager : MonoBehaviour
         messenger = new Messenger();
 
         pauseManager = GetComponent<PauseManager>();
+
+        inputSystem = GetComponent<InputSystem>();
     }
 
     #region Screen Setup

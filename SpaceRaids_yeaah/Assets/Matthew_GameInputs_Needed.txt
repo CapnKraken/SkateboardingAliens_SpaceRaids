@@ -1,0 +1,18 @@
+
+
+walk forward  
+backward      
+left
+right
+
+Camera left
+right
+up
+down
+
+-shoot
+-harvest/build
+-move item selection left
+-move item selection right
+
+-pause

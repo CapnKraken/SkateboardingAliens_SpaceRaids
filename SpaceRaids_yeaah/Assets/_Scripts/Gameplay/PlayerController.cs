@@ -50,6 +50,7 @@ public class PlayerController : ManagedObject
             //Calculate the force to apply to the player by adding the two motion vectors together
             playerVelocity = (transform.forward * walkMotion + transform.right * strafeMotion) * walkingSpeed + currentYVel;
 
+            #region Handle Shooting
             //shoot is an int, a value of 2 is the equivalent of GetKeyDown (so it'll only activate on first frame of input)
             if (shoot == 2)
             {
@@ -62,10 +63,11 @@ public class PlayerController : ManagedObject
                 Notify(Category.Shooting, "PlayerShoot_End");
                 Debug.Log("Shooting over");
             }
+            #endregion
         }
 
-        //Pause and unpause
-        if(inputSystem.toggleGUI == 2)
+        #region Pause and unpause
+        if (inputSystem.pause == 2)
         {
             if (GameManager.Instance.pauseManager.isPaused())
             {
@@ -76,6 +78,7 @@ public class PlayerController : ManagedObject
                 Notify(Category.GENERAL, "Pause");
             }
         }
+        #endregion
     }
 
     //Perform the player's physics update
@@ -84,7 +87,7 @@ public class PlayerController : ManagedObject
         //adjust for gravity
         currentYVel = new Vector3(0, rb.velocity.y, 0);
 
-        //Set the player's velocity
+        //Set the rigidbody velocity to the variable we set up in here
         rb.velocity = playerVelocity;
     }
 

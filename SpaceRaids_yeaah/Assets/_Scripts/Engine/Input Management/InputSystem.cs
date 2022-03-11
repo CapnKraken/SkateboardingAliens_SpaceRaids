@@ -11,12 +11,13 @@ public class InputSystem : MonoBehaviour
     //These are the variables the player controller scripts will see. They do not access input directly.
     public float cameraHorizontal, cameraVertical;
     public float walkFront, walkSide;
+    public float itemSelection;
 
     //Action button data is stored as an int
     //0: not pressed
     //1: held    (like GetKey())
     //2: pressed (like GetKeyDown())
-    public int shoot, toggleGUI;
+    public int shoot, pause, harvest;
 
     //array of control profiles
     public ControlProfile[] profiles = new ControlProfile[3];
@@ -51,8 +52,12 @@ public class InputSystem : MonoBehaviour
             {"strafeRight", new GameInput("d", InputType.Key)},
             {"strafeLeft", new GameInput("a", InputType.Key)},
 
-            {"shoot", new GameInput("mouse 1", InputType.Key)},
-            {"toggleGUI", new GameInput("space", InputType.Key)},
+            {"itemSelectRight", new GameInput("Axis 11", InputType.Axis)},
+            {"itemSelectLeft", new GameInput("", InputType.Null)},
+
+            {"shoot", new GameInput("mouse 0", InputType.Key)},
+            {"harvest", new GameInput("mouse 1", InputType.Key)},
+            {"pause", new GameInput("escape", InputType.Key)},
         });
 
         //Keyboard only profile
@@ -68,8 +73,12 @@ public class InputSystem : MonoBehaviour
             {"strafeRight", new GameInput("h", InputType.Key)},
             {"strafeLeft", new GameInput("f", InputType.Key)},
 
-            {"shoot", new GameInput("y", InputType.Key)},
-            {"toggleGUI", new GameInput("space", InputType.Key)},
+            {"itemSelectRight", new GameInput("e", InputType.Key)},
+            {"itemSelectLeft", new GameInput("q", InputType.Key)},
+
+            {"shoot", new GameInput("space", InputType.Key)},
+            {"harvest", new GameInput("left shift", InputType.Key)},
+            {"pause", new GameInput("escape", InputType.Key)},
         });
 
         //Gamepad profile
@@ -86,13 +95,19 @@ public class InputSystem : MonoBehaviour
             {"strafeRight", new GameInput("Axis 4", InputType.Axis)},
             {"strafeLeft", new GameInput("", InputType.Null)},
 
+            {"itemSelectRight", new GameInput("Button 5", InputType.Button)},
+            {"itemSelectLeft", new GameInput("Button 4", InputType.Button)},
+
             {"shoot", new GameInput("Axis 10", InputType.Axis)},
-            {"toggleGUI", new GameInput("Button 7", InputType.Button)},
+            {"harvest", new GameInput("Axis 9", InputType.Axis)},
+
+            {"pause", new GameInput("Button 7", InputType.Button)},
         });
 
-        //these two inputs default to zero, i.e. they aren't being pressed
+        //these inputs default to zero, i.e. they aren't being pressed
         shoot = 0;
-        toggleGUI = 0;
+        pause = 0;
+        harvest = 0;
     }
 
     void Update()
@@ -117,9 +132,13 @@ public class InputSystem : MonoBehaviour
             walkFront = 0 - HandleMovementInput("walkForward", "walkBackward", true);
             walkSide = HandleMovementInput("strafeRight", "strafeLeft", false);
 
+            //ITEM SELECTION INPUT
+            itemSelection = HandleMovementInput("itemSelectLeft", "itemSelectRight", false);
+
             //ACTION INPUT
             shoot = HandleActionInput(shoot, "shoot");
-            toggleGUI = HandleActionInput(toggleGUI, "toggleGUI");
+            pause = HandleActionInput(pause, "pause");
+            harvest = HandleActionInput(harvest, "harvest");
 
             #endregion
         }
