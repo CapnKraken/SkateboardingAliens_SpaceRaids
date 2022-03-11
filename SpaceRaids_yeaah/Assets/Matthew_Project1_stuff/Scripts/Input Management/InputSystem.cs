@@ -215,7 +215,11 @@ public class InputSystem : MonoBehaviour
                 string s = GetKeyPressed();
                 string sAvail = CheckAvailability(s);
 
-                if (sAvail == inputToRebind)
+                if (s == "mouse 0" && inputToRebind == "toggleGUI")
+                {
+                    isRebindingInputs = false;
+                }
+                else if (sAvail == inputToRebind)
                 {
                     //Debug.Log(inputToRebind);
                     gi.inputName = s;
