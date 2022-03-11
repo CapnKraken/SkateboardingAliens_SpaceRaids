@@ -42,6 +42,11 @@ public class PlayerController : MonoBehaviour
             walkMotion = inputSystem.walkFront;
             shoot = inputSystem.shoot;
 
+            //if(walkMotion != 0)
+            //{
+            //    Debug.Log($"Walkmotion: {walkMotion}");
+            //}
+
             //Calculate the force to apply to the player by adding the two motion vectors together
             playerVelocity = (transform.forward * walkMotion + transform.right * strafeMotion) * walkingSpeed + currentYVel;
 
