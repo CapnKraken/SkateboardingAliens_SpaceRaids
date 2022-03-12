@@ -82,6 +82,26 @@ Said object contains a reference to the input system, which contains variables s
 So, for instance, if you wanted the input for shooting, you would do:
 	int shootInput = GameManager.Instance.inputSystem.shoot;
 
+Variables:
+
+Movements (these will be floats between -1 and 1)
+
+inputSystem.walkFront
+inputSystem.walkSide
+inputSystem.cameraHorizontal
+inputSystem.cameraVertical
+inputSystem.itemSelection
+
+Actions (these will be from 0 to 3)
+
+0: input not pressed
+1: input pressed (equivalent of GetKey)
+2: first frame pressed (equivalent of GetKeyDown)
+3: first frame released (equivalent of GetKeyUp)
+
+inputSystem.shoot
+inputSystem.pause
+inputSystem.harvest
 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 

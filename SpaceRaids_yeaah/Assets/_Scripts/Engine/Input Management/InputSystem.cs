@@ -68,10 +68,10 @@ public class InputSystem : MonoBehaviour
             {"cameraUp", new GameInput("up", InputType.Key)},
             {"cameraDown", new GameInput("down", InputType.Key)},
 
-            {"walkForward", new GameInput("t", InputType.Key)},
-            {"walkBackward", new GameInput("g", InputType.Key)},
-            {"strafeRight", new GameInput("h", InputType.Key)},
-            {"strafeLeft", new GameInput("f", InputType.Key)},
+            {"walkForward", new GameInput("w", InputType.Key)},
+            {"walkBackward", new GameInput("s", InputType.Key)},
+            {"strafeRight", new GameInput("d", InputType.Key)},
+            {"strafeLeft", new GameInput("a", InputType.Key)},
 
             {"itemSelectRight", new GameInput("e", InputType.Key)},
             {"itemSelectLeft", new GameInput("q", InputType.Key)},
