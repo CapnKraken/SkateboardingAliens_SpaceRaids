@@ -67,6 +67,22 @@ Notifications:
 -Other data can be incorporated into the message if necessary.
 	For instance: "DamagePlayer 12". String.Split()[0] can be used to separate the message from the values also sent.
 
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Input System
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Inputs are accessed through the InputSystem component of GameManager.
+
+GameManager is a singleton, accessed through its instance, which is the object in the scene.
+-GameManager.Instance returns this object
+
+Said object contains a reference to the input system, which contains variables storing the player's inputs.
+
+So, for instance, if you wanted the input for shooting, you would do:
+	int shootInput = GameManager.Instance.inputSystem.shoot;
+
+
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 If you have any questions about any of this (or suggestions to add), post them in the discord.

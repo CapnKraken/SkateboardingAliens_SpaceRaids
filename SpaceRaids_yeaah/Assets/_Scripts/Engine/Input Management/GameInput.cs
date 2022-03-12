@@ -22,4 +22,9 @@ public struct GameInput
         inputName = g.inputName;
         inputType = g.inputType;
     }
+
+    public override string ToString()
+    {
+        return $"inputName: {inputName}\ninputType: {inputType}\nisAxisInverted: {isAxisInverted}";
+    }
 }

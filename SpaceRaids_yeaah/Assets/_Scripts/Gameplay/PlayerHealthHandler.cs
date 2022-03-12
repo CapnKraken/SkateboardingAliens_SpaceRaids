@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealthHandler : MonoBehaviour
+public class PlayerHealthHandler : ManagedObject
 {
     //UI elements which show the player's health data
     public Image healthBar;
@@ -17,13 +17,14 @@ public class PlayerHealthHandler : MonoBehaviour
 
     //the timer that controls health regeneration
     private float healingTimer;
-    
-    void Start()
+
+    protected override void Initialize()
     {
         //health is set to maximum by default
         health = maxHealth;
         healingTimer = 0;
     }
+
 
     void Update()
     {
@@ -61,6 +62,7 @@ public class PlayerHealthHandler : MonoBehaviour
         }
     }
 
+    //TODO: maybe handle the collision from the enemy or hazard rather than here
     private void OnCollisionEnter(Collision collision)
     {
         //Collision with an enemy will reduce health by 5 and reset the healing timer
@@ -70,4 +72,18 @@ public class PlayerHealthHandler : MonoBehaviour
             healingTimer = 0;
         }
     }
+
+    #region Notifications
+
+    public override void OnNotify(Category category, string message, string senderData)
+    {
+        
+    }
+
+    public override string GetLoggingData()
+    {
+        return name;
+    }
+
+    #endregion
 }

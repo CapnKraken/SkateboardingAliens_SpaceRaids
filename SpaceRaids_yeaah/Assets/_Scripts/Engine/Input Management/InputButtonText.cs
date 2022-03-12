@@ -18,7 +18,7 @@ public class InputButtonText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GuiSwap.paused)
+        if (GameManager.Instance.pauseManager.isPaused())
         {
             if(inputSystem.currentProfile == profile)
             {

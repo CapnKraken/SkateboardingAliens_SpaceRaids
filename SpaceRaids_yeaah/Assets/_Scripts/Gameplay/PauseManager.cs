@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuiSwap : MonoBehaviour
+public class PauseManager : ManagedObject
 {
-    public static bool paused;
+    private bool paused;
 
 
     //a reference to the gui canvas
@@ -14,41 +14,14 @@ public class GuiSwap : MonoBehaviour
 
     //references to the individual profile editing screens
     public GameObject profile1Gui, profile2Gui, profile3Gui;
-    void Start()
+
+    protected override void Initialize()
     {
-        paused = true;
-        GUIcanvas.enabled = true;
+        paused = false;
+        GUIcanvas.enabled = false;
         inputSystem = GetComponent<InputSystem>();
 
         SwapGui(inputSystem.currentProfile);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(inputSystem.toggleGUI == 2)
-        {
-            if (GUIcanvas.enabled)
-            {
-                paused = false;
-
-            }
-            else
-            {
-                paused = true;
-
-            }
-            GUIcanvas.enabled = !GUIcanvas.enabled;   
-        }
-
-        if (paused)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
     }
 
     public void SwapGui(int newGui)
@@ -76,4 +49,41 @@ public class GuiSwap : MonoBehaviour
             default:break;
         }
     }
+
+    /// <summary>
+    /// Getter for the paused boolean.
+    /// </summary>
+    public bool isPaused()
+    {
+        return paused;
+    }
+
+    #region Notifications
+    public override void OnNotify(Category category, string message, string senderData)
+    {
+        if(category == Category.GENERAL)
+        {
+            switch (message.Split()[0].ToLower())
+            {
+                case "pause":
+                    paused = true;
+                    Time.timeScale = 0;
+                    GUIcanvas.enabled = true;
+                    break;
+                case "resume":
+                case "unpause":
+                    paused = false;
+                    Time.timeScale = 1;
+                    GUIcanvas.enabled = false;
+                    break;
+                default:break;
+            }
+        }
+    }
+
+    public override string GetLoggingData()
+    {
+        return name + "_PauseManager";
+    }
+    #endregion
 }

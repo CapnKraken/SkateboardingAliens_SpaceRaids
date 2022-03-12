@@ -50,8 +50,12 @@ public class ControlProfile
             {"strafeRight", new GameInput("d", InputType.Key)},
             {"strafeLeft", new GameInput("a", InputType.Key)},
 
+            {"itemSelectRight", new GameInput("Axis 11", InputType.Axis)},
+            {"itemSelectLeft", new GameInput("", InputType.Null)},
+
             {"shoot", new GameInput("mouse 0", InputType.Key)},
-            {"toggleGUI", new GameInput("space", InputType.Key)},
+            {"harvest", new GameInput("mouse 1", InputType.Key)},
+            {"pause", new GameInput("escape", InputType.Key)},
         };
     }
 

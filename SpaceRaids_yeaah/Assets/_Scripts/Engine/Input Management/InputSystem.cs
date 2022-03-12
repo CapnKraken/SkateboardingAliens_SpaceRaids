@@ -11,12 +11,13 @@ public class InputSystem : MonoBehaviour
     //These are the variables the player controller scripts will see. They do not access input directly.
     public float cameraHorizontal, cameraVertical;
     public float walkFront, walkSide;
+    public float itemSelection;
 
     //Action button data is stored as an int
     //0: not pressed
     //1: held    (like GetKey())
     //2: pressed (like GetKeyDown())
-    public int shoot, toggleGUI;
+    public int shoot, pause, harvest;
 
     //array of control profiles
     public ControlProfile[] profiles = new ControlProfile[3];
@@ -51,8 +52,12 @@ public class InputSystem : MonoBehaviour
             {"strafeRight", new GameInput("d", InputType.Key)},
             {"strafeLeft", new GameInput("a", InputType.Key)},
 
-            {"shoot", new GameInput("mouse 1", InputType.Key)},
-            {"toggleGUI", new GameInput("space", InputType.Key)},
+            {"itemSelectRight", new GameInput("e", InputType.Key)},
+            {"itemSelectLeft", new GameInput("q", InputType.Key)},
+
+            {"shoot", new GameInput("mouse 0", InputType.Key)},
+            {"harvest", new GameInput("mouse 1", InputType.Key)},
+            {"pause", new GameInput("escape", InputType.Key)},
         });
 
         //Keyboard only profile
@@ -68,31 +73,41 @@ public class InputSystem : MonoBehaviour
             {"strafeRight", new GameInput("h", InputType.Key)},
             {"strafeLeft", new GameInput("f", InputType.Key)},
 
-            {"shoot", new GameInput("y", InputType.Key)},
-            {"toggleGUI", new GameInput("space", InputType.Key)},
+            {"itemSelectRight", new GameInput("e", InputType.Key)},
+            {"itemSelectLeft", new GameInput("q", InputType.Key)},
+
+            {"shoot", new GameInput("space", InputType.Key)},
+            {"harvest", new GameInput("left shift", InputType.Key)},
+            {"pause", new GameInput("escape", InputType.Key)},
         });
 
         //Gamepad profile
         profiles[2] = new ControlProfile(true, 100f, new Dictionary<string, GameInput>()
         {
             //These are defaults for my controller. The axes can be mixed and matched though so the system should work with any.
-            {"cameraRight", new GameInput("Axis 1", InputType.Axis)},
+            {"cameraRight", new GameInput("Axis 4", InputType.Axis)},
             {"cameraLeft", new GameInput("", InputType.Null)},
-            {"cameraUp", new GameInput("Axis 2", InputType.Axis)},
+            {"cameraUp", new GameInput("Axis 5", InputType.Axis)},
             {"cameraDown", new GameInput("", InputType.Null)},
 
-            {"walkForward", new GameInput("Axis 5", InputType.Axis)},
+            {"walkForward", new GameInput("Axis 2", InputType.Axis)},
             {"walkBackward", new GameInput("", InputType.Null)},
-            {"strafeRight", new GameInput("Axis 4", InputType.Axis)},
+            {"strafeRight", new GameInput("Axis 1", InputType.Axis)},
             {"strafeLeft", new GameInput("", InputType.Null)},
 
+            {"itemSelectRight", new GameInput("Button 5", InputType.Button)},
+            {"itemSelectLeft", new GameInput("Button 4", InputType.Button)},
+
             {"shoot", new GameInput("Axis 10", InputType.Axis)},
-            {"toggleGUI", new GameInput("Button 7", InputType.Button)},
+            {"harvest", new GameInput("Axis 9", InputType.Axis)},
+
+            {"pause", new GameInput("Button 7", InputType.Button)},
         });
 
-        //these two inputs default to zero, i.e. they aren't being pressed
+        //these inputs default to zero, i.e. they aren't being pressed
         shoot = 0;
-        toggleGUI = 0;
+        pause = 0;
+        harvest = 0;
     }
 
     void Update()
@@ -117,9 +132,13 @@ public class InputSystem : MonoBehaviour
             walkFront = 0 - HandleMovementInput("walkForward", "walkBackward", true);
             walkSide = HandleMovementInput("strafeRight", "strafeLeft", false);
 
+            //ITEM SELECTION INPUT
+            itemSelection = HandleMovementInput("itemSelectRight", "itemSelectLeft", false);
+
             //ACTION INPUT
             shoot = HandleActionInput(shoot, "shoot");
-            toggleGUI = HandleActionInput(toggleGUI, "toggleGUI");
+            pause = HandleActionInput(pause, "pause");
+            harvest = HandleActionInput(harvest, "harvest");
 
             #endregion
         }
@@ -129,7 +148,8 @@ public class InputSystem : MonoBehaviour
             if (profiles[currentProfile].isGamepad)
             //If we're rebinding a gamepad, we need to deal with both axes and buttons
             {
-                if (inputToRebind == "toggleGUI" || inputToRebind == "shoot")
+                #region Gamepad rebinding
+                if (inputToRebind == "pause" || inputToRebind == "shoot" || inputToRebind == "harvest")
                 {
                 //these are action inputs, and they can be rebound to either a button or an axis
                     
@@ -141,7 +161,12 @@ public class InputSystem : MonoBehaviour
                     string aAvail = CheckAvailability(a);
                     string bAvail = CheckAvailability(b);
 
-                    if (aAvail == inputToRebind)
+                    //gamepad profiles can't use the mouse wheel
+                    if(aAvail == "Axis 11")
+                    {
+                        isRebindingInputs = false;
+                    }
+                    else if (aAvail == inputToRebind)
                     {
                         gi.inputName = a;
                         gi.inputType = InputType.Axis;
@@ -187,8 +212,12 @@ public class InputSystem : MonoBehaviour
 
                     string aAvail = CheckAvailability(a);
 
-
-                    if (aAvail == inputToRebind)
+                    //gamepad profiles can't use the mouse wheel
+                    if (aAvail == "Axis 11")
+                    {
+                        isRebindingInputs = false;
+                    }
+                    else if (aAvail == inputToRebind)
                     {
                         gi.inputName = a;
                         gi.inputType = InputType.Axis;
@@ -208,14 +237,26 @@ public class InputSystem : MonoBehaviour
                         isRebindingInputs = false;
                     }
                 }
+                #endregion
             }
             else
-            //The keyboard profiles only have to deal with keys
+            //The keyboard profiles deal with keys and axes, but only axis 11 (the scroll wheel)
             {
+                #region Keyboard rebinding
                 string s = GetKeyPressed();
                 string sAvail = CheckAvailability(s);
 
-                if (s == "mouse 0" && inputToRebind == "toggleGUI")
+                string axis = GetAxisPressed();
+                string axisAvail = CheckAvailability(axis);
+
+                //only let axis 11 be selected
+                if(axisAvail != "none" && axisAvail != "Axis 11")
+                {
+                    isRebindingInputs = false;
+                }
+                //next block makes it so you can't set pause to mouse click.
+                //that would break the menu system, which works through button clicks
+                else if (s == "mouse 0" && inputToRebind == "pause")
                 {
                     isRebindingInputs = false;
                 }
@@ -239,6 +280,16 @@ public class InputSystem : MonoBehaviour
                     profiles[currentProfile].ChangeInput(inputToRebind, gi);
                     isRebindingInputs = false;
                 }
+
+                if (axisAvail == inputToRebind)
+                {
+                    gi.inputName = axis;
+                    gi.inputType = InputType.Axis;
+                    profiles[currentProfile].ChangeInput(inputToRebind, gi);
+                    isRebindingInputs = false;
+                }
+
+                #endregion
             }
 
             #endregion
@@ -293,6 +344,7 @@ public class InputSystem : MonoBehaviour
         //Method to gather input data from the current control profile if the required input is movement with a positive and negative component
 
         GameInput gameInput = GetProfileInput(currentProfile, positiveMotion);
+        //Debug.Log(gameInput.ToString());
         
         if (gameInput.inputType == InputType.Axis)
         //inputs that are axes ignore the negative input, because they can be both positive and negative
@@ -370,11 +422,16 @@ public class InputSystem : MonoBehaviour
         {
             float f = Input.GetAxis(i.inputName);
 
-
-
             if (f == 0)
             {
-                return 0;
+                if(currentState == 1)
+                {
+                    return 3;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             else //since it's an action input, we don't care how much the axis is pressed, just that it is.
             {
@@ -407,7 +464,14 @@ public class InputSystem : MonoBehaviour
                 }
                 else
                 {
-                    return 0;
+                    if (currentState == 1)
+                    {
+                        return 3;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
             else
@@ -425,7 +489,14 @@ public class InputSystem : MonoBehaviour
                 }
                 else
                 {
-                    return 0;
+                    if (currentState == 1)
+                    {
+                        return 3;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
         }
@@ -496,8 +567,16 @@ public class InputSystem : MonoBehaviour
 
     public string GetAxisPressed()
     {
+        /*
+         ONLY GOES TO 10. THERE ARE 11 AXES.
+         Axis 11 (scrollwheel) was breaking stuff.
+         
+         May add it back in later but it's not *really* neccessary
+         */
+
+
         //Only using 11 axes, so don't need to define any more
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i < 10; i++)
         {
             if (Mathf.Abs(Input.GetAxis($"Axis {i + 1}")) >= 0.7f)
             {

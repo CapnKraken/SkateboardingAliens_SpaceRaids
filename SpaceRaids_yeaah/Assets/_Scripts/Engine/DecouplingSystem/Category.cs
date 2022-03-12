@@ -4,6 +4,6 @@
 /// </summary>
 public enum Category
 {
-    GENERAL, Enemies, Player, Audio
+    GENERAL, Enemies, Player, Audio, Shooting
 }
 
