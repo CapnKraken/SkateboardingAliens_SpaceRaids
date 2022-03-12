@@ -12,8 +12,13 @@ public class PauseManager : ManagedObject
 
     private InputSystem inputSystem;
 
-    //references to the individual profile editing screens
+    //references to the individual input profile editing screens
     public GameObject profile1Gui, profile2Gui, profile3Gui;
+
+    /// <summary>
+    /// A list of parent game objects for the different screens in the pause menu.
+    /// </summary>
+    public List<GameObject> pauseMenus;
 
     protected override void Initialize()
     {
@@ -22,6 +27,14 @@ public class PauseManager : ManagedObject
         inputSystem = GetComponent<InputSystem>();
 
         SwapGui(inputSystem.currentProfile);
+    }
+
+    public void SwitchPauseScreen(int index)
+    {
+        if(index >= 0 && index < pauseMenus.Count)
+        {
+
+        }
     }
 
     public void SwapGui(int newGui)
