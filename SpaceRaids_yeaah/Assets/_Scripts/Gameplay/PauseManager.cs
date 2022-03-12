@@ -26,24 +26,33 @@ public class PauseManager : ManagedObject
         GUIcanvas.enabled = false;
         inputSystem = GetComponent<InputSystem>();
 
-        SwapGui(inputSystem.currentProfile);
+        SwapInputProfile(inputSystem.currentProfile);
     }
 
     public void SwitchPauseScreen(int index)
     {
+        //Make sure the index is within range
         if(index >= 0 && index < pauseMenus.Count)
         {
-
+            for(int i = 0; i < pauseMenus.Count; i++)
+            {
+                if(i == index)
+                {
+                    pauseMenus[i].SetActive(true);
+                }
+                else
+                {
+                    pauseMenus[i].SetActive(false);
+                }
+            }
         }
     }
 
-    public void SwapGui(int newGui)
+    public void SwapInputProfile(int newProfile)
     {
-        //Next I need methods in InputSystem to handle getting input data when the button is pressed
-
-        switch (newGui)
+        switch (newProfile)
         {
-            //activate the current gui and hide the rest
+            //activate the current input profile and hide the rest
             case 0:
                 profile1Gui.SetActive(true);
                 profile2Gui.SetActive(false);
@@ -82,6 +91,7 @@ public class PauseManager : ManagedObject
                     paused = true;
                     Time.timeScale = 0;
                     GUIcanvas.enabled = true;
+                    SwitchPauseScreen(0);
                     break;
                 case "resume":
                 case "unpause":
