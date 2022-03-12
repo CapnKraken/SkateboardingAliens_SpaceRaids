@@ -55,13 +55,13 @@ public class PlayerController : ManagedObject
             if (shoot == 2)
             {
                 Notify(Category.Shooting, "PlayerShoot_Start");
-                Debug.Log("Starting to shoot");
+                //Debug.Log("Starting to shoot");
             }
             //value of 3 is getKeyUp.
             else if(shoot == 3)
             {
                 Notify(Category.Shooting, "PlayerShoot_End");
-                Debug.Log("Shooting over");
+                //Debug.Log("Shooting over");
             }
             #endregion
         }

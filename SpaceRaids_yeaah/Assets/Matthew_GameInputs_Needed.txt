@@ -15,4 +15,4 @@ down
 -move item selection left
 -move item selection right
 
--pause
+pause
