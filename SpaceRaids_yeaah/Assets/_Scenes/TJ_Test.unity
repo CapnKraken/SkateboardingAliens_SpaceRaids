@@ -1863,10 +1863,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721563042091179}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2200,7 +2200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: walkBackward
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721563324301263}
 --- !u!224 &6069721561733790176
@@ -2446,9 +2445,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: ToggleInvertYAxis
+      - m_Target: {fileID: 6069721563268435485}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: InvertYAxisToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2510,7 +2509,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: pause
-  inputSystem: {fileID: 6069721562538782986}
   profile: 2
   text: {fileID: 6069721561711597524}
 --- !u!1 &6069721561785871553
@@ -2634,10 +2632,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562750119332}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2938,10 +2936,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562777302720}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3452,10 +3450,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721563749884757}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3528,7 +3526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: shoot
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721562746619439}
 --- !u!1 &6069721561941325563
@@ -3561,7 +3558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: itemSelectRight
-  inputSystem: {fileID: 6069721562538782986}
   profile: 0
   text: {fileID: 6069721561830582849}
 --- !u!1 &6069721561947943418
@@ -3646,10 +3642,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721563252170358}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3924,7 +3920,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: walkForward
-  inputSystem: {fileID: 6069721562538782986}
   profile: 2
   text: {fileID: 6069721562018288354}
 --- !u!1 &6069721561983545695
@@ -4075,10 +4070,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562684584106}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4277,10 +4272,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562293806225}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5425,10 +5420,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721561941325561}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5529,7 +5524,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: cameraDown
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721562796648433}
 --- !u!1 &6069721562222045158
@@ -5621,7 +5615,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: shoot
-  inputSystem: {fileID: 6069721562538782986}
   profile: 0
   text: {fileID: 6069721563134469057}
 --- !u!1 &6069721562240417112
@@ -5829,7 +5822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: harvest
-  inputSystem: {fileID: 6069721562538782986}
   profile: 0
   text: {fileID: 6069721562076251629}
 --- !u!114 &6069721562251623032
@@ -6103,7 +6095,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: walkBackward
-  inputSystem: {fileID: 6069721562538782986}
   profile: 0
   text: {fileID: 6069721562448250256}
 --- !u!1 &6069721562293806227
@@ -6419,7 +6410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: strafeRight
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721562251623032}
 --- !u!222 &6069721562334814538
@@ -6836,10 +6826,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721563589477352}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6961,7 +6951,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: harvest
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721562578846665}
 --- !u!1 &6069721562355767078
@@ -7162,10 +7151,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: InvertAxis
-        m_Mode: 5
+      - m_Target: {fileID: 6069721563268435485}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnInvertAxis
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7209,7 +7198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: cameraUp
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721563171313211}
 --- !u!1 &6069721562376305751
@@ -7281,7 +7269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: cameraRight
-  inputSystem: {fileID: 6069721562538782986}
   profile: 2
   text: {fileID: 6069721561672772574}
 --- !u!114 &6069721562448250256
@@ -7414,7 +7401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: strafeLeft
-  inputSystem: {fileID: 6069721562538782986}
   profile: 0
   text: {fileID: 6069721562558898510}
 --- !u!114 &6069721562456318492
@@ -7667,7 +7653,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: strafeRight
-  inputSystem: {fileID: 6069721562538782986}
   profile: 2
   text: {fileID: 6069721562456318492}
 --- !u!1 &6069721562495522050
@@ -7850,7 +7835,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: walkForward
-  inputSystem: {fileID: 6069721562538782986}
   profile: 0
   text: {fileID: 6069721562000288640}
 --- !u!1 &6069721562515229629
@@ -7883,7 +7867,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: itemSelectRight
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721562857563759}
 --- !u!1 &6069721562519885452
@@ -8121,10 +8104,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562331643579}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8447,10 +8430,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562222451962}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8646,7 +8629,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: walkForward
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721562068088541}
 --- !u!222 &6069721562570491928
@@ -8872,10 +8854,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: InvertAxis
-        m_Mode: 5
+      - m_Target: {fileID: 6069721561983545693}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnInvertAxis
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8936,7 +8918,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: pause
-  inputSystem: {fileID: 6069721562538782986}
   profile: 0
   text: {fileID: 6069721562758923875}
 --- !u!1 &6069721562620984367
@@ -9057,9 +9038,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782987}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: SwapInputProfile
+      - m_Target: {fileID: 6069721562647581652}
+        m_TargetAssemblyTypeName: ProfileButton, Assembly-CSharp
+        m_MethodName: OnButtonPressed
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9081,6 +9062,7 @@ GameObject:
   - component: {fileID: 6069721562647581655}
   - component: {fileID: 6069721562647581654}
   - component: {fileID: 6069721562647581649}
+  - component: {fileID: 6069721562647581652}
   m_Layer: 5
   m_Name: Profile 2 Button
   m_TagString: Untagged
@@ -9088,6 +9070,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6069721562647581652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069721562647581651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc77bbb4326d96949857edd422f45aae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6069721562647581654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9173,9 +9167,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: ToggleInvertYAxis
+      - m_Target: {fileID: 6069721562515229619}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: InvertYAxisToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9436,10 +9430,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: InvertAxis
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562495522048}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnInvertAxis
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9500,7 +9494,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: pause
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721563289613995}
 --- !u!1 &6069721562684584116
@@ -9741,10 +9734,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562376305749}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9845,7 +9838,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: harvest
-  inputSystem: {fileID: 6069721562538782986}
   profile: 2
   text: {fileID: 6069721562780460335}
 --- !u!1 &6069721562750119334
@@ -10096,7 +10088,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: itemSelectLeft
-  inputSystem: {fileID: 6069721562538782986}
   profile: 2
   text: {fileID: 6069721562347015314}
 --- !u!1 &6069721562777302722
@@ -10465,10 +10456,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721561773028055}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10609,10 +10600,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562355767076}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10731,10 +10722,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721563700323673}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11061,10 +11052,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721563266165865}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11973,7 +11964,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: itemSelectLeft
-  inputSystem: {fileID: 6069721562538782986}
   profile: 0
   text: {fileID: 6069721563647858344}
 --- !u!1 &6069721563032891134
@@ -12127,7 +12117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: strafeLeft
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721561733790177}
 --- !u!1 &6069721563042091189
@@ -12696,10 +12685,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721563494653301}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12965,10 +12954,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562248345294}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13283,10 +13272,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: InvertAxis
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562436031110}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnInvertAxis
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13364,7 +13353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: cameraLeft
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721563477473359}
 --- !u!224 &6069721563266165864
@@ -13401,7 +13389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: cameraRight
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721562018053881}
 --- !u!1 &6069721563266165867
@@ -13456,7 +13443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: cameraUp
-  inputSystem: {fileID: 6069721562538782986}
   profile: 2
   text: {fileID: 6069721561754732346}
 --- !u!1 &6069721563268435487
@@ -13866,10 +13852,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721561732440127}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13930,10 +13916,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562222045156}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14181,10 +14167,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562620984365}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14336,7 +14322,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: itemSelectRight
-  inputSystem: {fileID: 6069721562538782986}
   profile: 2
   text: {fileID: 6069721562947668472}
 --- !u!1 &6069721563494653303
@@ -14496,10 +14481,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721563032891132}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14595,9 +14580,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: ToggleInvertYAxis
+      - m_Target: {fileID: 6069721562376305749}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: InvertYAxisToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14821,10 +14806,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562515229619}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14845,6 +14830,7 @@ GameObject:
   - component: {fileID: 6069721563557914872}
   - component: {fileID: 6069721563557914875}
   - component: {fileID: 6069721563557914874}
+  - component: {fileID: 6069721563557914822}
   m_Layer: 5
   m_Name: Profile 3 Button
   m_TagString: Untagged
@@ -14872,6 +14858,18 @@ RectTransform:
   m_AnchoredPosition: {x: 184.60507, y: 103.24999}
   m_SizeDelta: {x: 103.20001, y: 46.3}
   m_Pivot: {x: 1, y: 1}
+--- !u!114 &6069721563557914822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069721563557914820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc77bbb4326d96949857edd422f45aae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &6069721563557914872
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14924,9 +14922,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782987}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: SwapInputProfile
+      - m_Target: {fileID: 6069721563557914822}
+        m_TargetAssemblyTypeName: ProfileButton, Assembly-CSharp
+        m_MethodName: OnButtonPressed
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15091,9 +15089,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782987}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: SwapInputProfile
+      - m_Target: {fileID: 6069721563570053780}
+        m_TargetAssemblyTypeName: ProfileButton, Assembly-CSharp
+        m_MethodName: OnButtonPressed
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15145,6 +15143,7 @@ GameObject:
   - component: {fileID: 6069721563570053782}
   - component: {fileID: 6069721563570053777}
   - component: {fileID: 6069721563570053776}
+  - component: {fileID: 6069721563570053780}
   m_Layer: 5
   m_Name: Profile 1 Button
   m_TagString: Untagged
@@ -15172,6 +15171,18 @@ RectTransform:
   m_AnchoredPosition: {x: -184.60506, y: 103.24999}
   m_SizeDelta: {x: 103.2, y: 46.3}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &6069721563570053780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069721563570053778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc77bbb4326d96949857edd422f45aae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &6069721563570053782
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15347,10 +15358,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562519885442}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15480,10 +15491,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721561947943416}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15566,10 +15577,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721561983545693}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15668,7 +15679,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: shoot
-  inputSystem: {fileID: 6069721562538782986}
   profile: 2
   text: {fileID: 6069721561666852453}
 --- !u!1 &6069721563589477354
@@ -15761,10 +15771,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562436031110}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16042,10 +16052,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562569610742}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16343,10 +16353,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562449975318}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16539,7 +16549,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: itemSelectLeft
-  inputSystem: {fileID: 6069721562538782986}
   profile: 1
   text: {fileID: 6069721562806542370}
 --- !u!1 &6069721563700323675
@@ -16736,10 +16745,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721563268435485}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16951,7 +16960,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: strafeRight
-  inputSystem: {fileID: 6069721562538782986}
   profile: 0
   text: {fileID: 6069721561853608155}
 --- !u!1 &6069721563749884759
@@ -17182,10 +17190,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EditInput
-        m_Mode: 5
+      - m_Target: {fileID: 6069721562495522048}
+        m_TargetAssemblyTypeName: InputButtonText, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

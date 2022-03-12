@@ -9,12 +9,18 @@ public class InputButtonText : MonoBehaviour
     public string inputName;
 
     //reference to the game's input system
-    public InputSystem inputSystem;
+    private InputSystem inputSystem;
 
     //current control profile
     public int profile;
 
     public Text text;
+
+    private void Start()
+    {
+        inputSystem = GameManager.Instance.inputSystem;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -26,5 +32,23 @@ public class InputButtonText : MonoBehaviour
                 text.text = inputSystem.profiles[inputSystem.currentProfile].GetInputs()[inputName].inputName;
             }
         }
+    }
+
+    //What to do when the button is clicked.
+    public void OnButtonPressed()
+    {
+        inputSystem.EditInput(inputName);
+    }
+
+    //For the axis toggles in profile 3
+    public void OnInvertAxis() 
+    {
+        inputSystem.InvertAxis(inputName);
+    }
+
+    //Toggle invert y axis
+    public void InvertYAxisToggle()
+    {
+        inputSystem.ToggleInvertYAxis();
     }
 }
