@@ -20,9 +20,6 @@ public class PlayerController : ManagedObject
     private float strafeMotion, walkMotion;
     private int shoot;
 
-    //Both types of bullets assigned to this in the inspector
-    public GameObject[] bulletTypes;
-
     //The empty object that sits in front of the player and serves as the place the bullets spawn from
     public Transform spawnPos;
 
