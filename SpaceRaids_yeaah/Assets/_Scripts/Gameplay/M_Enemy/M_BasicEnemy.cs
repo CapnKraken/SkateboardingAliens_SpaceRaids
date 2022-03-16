@@ -52,10 +52,11 @@ public class M_BasicEnemy : ManagedObject
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Player")
+        if(collision.gameObject.tag == "Player")
         {
             //Damage the player with a variable damage rate
-            Notify(Category.Player, $"DamagePlayer {Random.Range(damageRange.x, damageRange.y)}");
+            string s = $"DamagePlayer {Random.Range(damageRange.x, damageRange.y)}";
+            Notify(Category.Player, s);
         }
     }
 
