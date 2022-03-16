@@ -73,7 +73,7 @@ public class StandardGun : ManagedObject
         p.SetVars(speed, damage);
 
         //destroy the projectile after 7 seconds
-        Destroy(p, 7.0f);
+        Destroy(p.gameObject, 7.0f);
     }
 
     #endregion

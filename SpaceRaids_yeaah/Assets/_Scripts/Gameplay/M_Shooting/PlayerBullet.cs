@@ -18,6 +18,9 @@ public class PlayerBullet : ManagedObject
 
         }
 
+        //JUST A TEST FOR EXPLOSION
+        Notify(Category.GENERAL, $"SpawnExplosion {transform.position.x} {transform.position.y} {transform.position.z}");
+
         DeleteBullet();
     }
 
