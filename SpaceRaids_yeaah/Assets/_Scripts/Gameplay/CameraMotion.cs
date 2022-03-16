@@ -11,11 +11,12 @@ public class CameraMotion : MonoBehaviour
     private Transform parent;
 
     //Will obtain the movement input information from here
-    public InputSystem inputSystem;
+    private InputSystem inputSystem;
     void Start()
     {
         //set parent to the transform of the parent object, in this case, the rotator object
         parent = transform.parent;
+        inputSystem = GameManager.Instance.inputSystem;
     }
 
     void Update()
