@@ -723,12 +723,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737067429}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14384297, y: -0.74, z: 3.89}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1723128867}
-  m_Father: {fileID: 1263378689}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &770740686 stripped
 Transform:
@@ -1070,7 +1070,6 @@ Transform:
   m_Children:
   - {fileID: 86230372}
   - {fileID: 1666101444}
-  - {fileID: 737067430}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8562,7 +8561,7 @@ MonoBehaviour:
   shoot: 0
   pause: 0
   harvest: 0
-  currentProfile: 1
+  currentProfile: 0
   cameraSensitivitySlider: {fileID: 6069721563216642251}
 --- !u!114 &6069721562538782987
 MonoBehaviour:
