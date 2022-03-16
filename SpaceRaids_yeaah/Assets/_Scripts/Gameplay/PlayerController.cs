@@ -1,3 +1,5 @@
+//Matthew Watson
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,9 +21,6 @@ public class PlayerController : ManagedObject
     //These variables are set to their counterparts in inputSystem.
     private float strafeMotion, walkMotion;
     private int shoot;
-
-    //Both types of bullets assigned to this in the inspector
-    public GameObject[] bulletTypes;
 
     //The empty object that sits in front of the player and serves as the place the bullets spawn from
     public Transform spawnPos;
@@ -46,6 +45,7 @@ public class PlayerController : ManagedObject
             strafeMotion = inputSystem.walkSide;
             walkMotion = inputSystem.walkFront;
             shoot = inputSystem.shoot;
+            //harvest = inputSystem.harvest;
 
             //Calculate the force to apply to the player by adding the two motion vectors together
             playerVelocity = (transform.forward * walkMotion + transform.right * strafeMotion) * walkingSpeed + currentYVel;

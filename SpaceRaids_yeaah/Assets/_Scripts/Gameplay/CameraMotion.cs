@@ -1,3 +1,5 @@
+//Matthew Watson
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +12,15 @@ public class CameraMotion : MonoBehaviour
     //The object I want to rotate about the y axis for looking around horizontally
     private Transform parent;
 
+    private Rigidbody parentRB;
+
     //Will obtain the movement input information from here
     public InputSystem inputSystem;
     void Start()
     {
         //set parent to the transform of the parent object, in this case, the rotator object
         parent = transform.parent;
+        parentRB = parent.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -25,7 +30,7 @@ public class CameraMotion : MonoBehaviour
         transform.Rotate(new Vector3(0 - inputSystem.cameraVertical * inputSystem.profiles[inputSystem.currentProfile].cameraMovementSensitivity * Time.deltaTime, 0, 0));
 
         //Rotate the parent object, so as to not mess with this object's y rotation axis. 
-        parent.Rotate(new Vector3(0, inputSystem.cameraHorizontal * inputSystem.profiles[inputSystem.currentProfile].cameraMovementSensitivity * Time.deltaTime, 0));
+        parentRB.MoveRotation(Quaternion.Euler(parent.rotation.eulerAngles + new Vector3(0, inputSystem.cameraHorizontal * inputSystem.profiles[inputSystem.currentProfile].cameraMovementSensitivity * Time.deltaTime, 0)));
 
         //The following block clamps the vertical camera movement, so the player can only look all the way up and down, but no further
         {
