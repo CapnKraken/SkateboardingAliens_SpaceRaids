@@ -23,9 +23,7 @@ public class PlayerController : ManagedObject
     //The empty object that sits in front of the player and serves as the place the bullets spawn from
     public Transform spawnPos;
 
-    protected override void Initialize() { }
-
-    void Start()
+    protected override void Initialize()
     {
         //get the rigidbody
         rb = GetComponent<Rigidbody>();
