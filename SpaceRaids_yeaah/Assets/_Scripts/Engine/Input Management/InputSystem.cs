@@ -100,7 +100,6 @@ public class InputSystem : MonoBehaviour
 
             {"shoot", new GameInput("Axis 10", InputType.Axis)},
             {"harvest", new GameInput("Axis 9", InputType.Axis)},
-
             {"pause", new GameInput("Button 7", InputType.Button)},
         });
 

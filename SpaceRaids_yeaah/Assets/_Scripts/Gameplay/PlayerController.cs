@@ -23,7 +23,9 @@ public class PlayerController : ManagedObject
     //The empty object that sits in front of the player and serves as the place the bullets spawn from
     public Transform spawnPos;
 
-    protected override void Initialize()
+    protected override void Initialize() { }
+
+    void Start()
     {
         //get the rigidbody
         rb = GetComponent<Rigidbody>();
@@ -43,6 +45,7 @@ public class PlayerController : ManagedObject
             strafeMotion = inputSystem.walkSide;
             walkMotion = inputSystem.walkFront;
             shoot = inputSystem.shoot;
+            //harvest = inputSystem.harvest;
 
             //Calculate the force to apply to the player by adding the two motion vectors together
             playerVelocity = (transform.forward * walkMotion + transform.right * strafeMotion) * walkingSpeed + currentYVel;
