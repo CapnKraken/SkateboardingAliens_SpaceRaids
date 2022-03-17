@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : ManagedObject
 {
@@ -78,6 +79,15 @@ public class PauseManager : ManagedObject
     public bool isPaused()
     {
         return paused;
+    }
+
+    /// <summary>
+    /// Quit the game. <br/>
+    /// METHOD IS TEMPORARY. JUST FOR DEMO
+    /// </summary>
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     #region Notifications

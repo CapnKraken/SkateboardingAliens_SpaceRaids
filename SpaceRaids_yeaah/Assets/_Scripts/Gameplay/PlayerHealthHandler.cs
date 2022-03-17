@@ -62,22 +62,19 @@ public class PlayerHealthHandler : ManagedObject
         }
     }
 
-    //TODO: maybe handle the collision from the enemy or hazard rather than here
-    private void OnCollisionEnter(Collision collision)
-    {
-        //Collision with an enemy will reduce health by 5 and reset the healing timer
-        if(collision.gameObject.tag == "enemy")
-        {
-            changeHealth(-5);
-            healingTimer = 0;
-        }
-    }
 
     #region Notifications
 
     public override void OnNotify(Category category, string message, string senderData)
     {
-        
+        if (category == Category.Player)
+        {
+            if(message.Split()[0] == "DamagePlayer")
+            {
+                //damage the player by the specified amount
+                changeHealth(0 - float.Parse(message.Split()[1]));
+            }
+        }
     }
 
     public override string GetLoggingData()

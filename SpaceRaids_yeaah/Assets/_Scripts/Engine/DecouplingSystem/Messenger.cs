@@ -108,6 +108,12 @@ public class Messenger
         public void NotifyObject(ManagedObject recipient)
         {
             recipient.OnNotify(category, message, senderData);
+
+        }
+
+        public override string ToString()
+        {
+            return $"{category} {message} {senderData}";
         }
     }
 
