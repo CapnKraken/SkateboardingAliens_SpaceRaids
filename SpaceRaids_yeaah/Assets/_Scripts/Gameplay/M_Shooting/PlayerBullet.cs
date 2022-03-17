@@ -12,14 +12,12 @@ public class PlayerBullet : ManagedObject
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "M_BasicEnemy")
         {
             //Hit enemy here.
-
+            M_BasicEnemy enemy = collision.gameObject.GetComponent<M_BasicEnemy>();
+            enemy.Hurt(damage);
         }
-
-        //JUST A TEST FOR EXPLOSION
-        Notify(Category.GENERAL, $"SpawnExplosion {transform.position.x} {transform.position.y} {transform.position.z}");
 
         DeleteBullet();
     }

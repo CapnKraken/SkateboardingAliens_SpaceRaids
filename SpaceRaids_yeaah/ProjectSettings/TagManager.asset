@@ -9,6 +9,7 @@ TagManager:
   - Tree
   - Ore
   - Animal
+  - M_BasicEnemy
   layers:
   - Default
   - TransparentFX
