@@ -12,29 +12,48 @@ public class EnemySpawner : ManagedObject
 
     public GameObject enemy;
 
+    private bool canSpawnEnemies;
+
     protected override void Initialize()
     {
         timer = 0;
+        canSpawnEnemies = false;
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if(timer > waitTime)
+        //Only spawn enemies if it's the correct time
+        if (canSpawnEnemies)
         {
-            //Spawn the enemy
-            Vector3 spawnPos = new Vector3(Random.Range(0 - bound, bound), 3, Random.Range(0 - bound, bound));
+            timer += Time.deltaTime;
+            if (timer > waitTime)
+            {
+                //Spawn the enemy
+                Vector3 spawnPos = new Vector3(Random.Range(0 - bound, bound), 3, Random.Range(0 - bound, bound));
 
-            Instantiate(enemy, spawnPos, Quaternion.identity);
+                Instantiate(enemy, spawnPos, Quaternion.identity);
 
-            //reset the timer
-            timer = 0;
+                //reset the timer
+                timer = 0;
+            }
         }
     }
 
     public override void OnNotify(Category category, string message, string senderData)
     {
-        
+        if(category == Category.GENERAL)
+        {
+            switch (message.Split()[0])
+            {
+                case "Daybreak":
+                    canSpawnEnemies = false;
+                    break;
+                case "Nightfall":
+                    canSpawnEnemies = true;
+                    break;
+                default: break;
+            }
+        }
     }
 
     public override string GetLoggingData()
