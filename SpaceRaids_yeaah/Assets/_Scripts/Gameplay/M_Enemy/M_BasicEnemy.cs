@@ -16,9 +16,11 @@ public class M_BasicEnemy : ManagedObject
 
     public Vector2 speedRange;
     private float speed;
+    public float detectionRange;
 
     //reference to the player object
-    private GameObject player;
+    private GameObject player, ship;
+    private float playerDistance;
 
     protected override void Initialize()
     {
@@ -26,6 +28,7 @@ public class M_BasicEnemy : ManagedObject
         speed = Random.Range(speedRange.x, speedRange.y);
 
         player = GameObject.FindGameObjectWithTag("Player");
+        ship = GameObject.FindGameObjectWithTag("Ship");
 
         agent.speed = speed;
     }
@@ -47,7 +50,18 @@ public class M_BasicEnemy : ManagedObject
 
     private void Update()
     {
-        agent.destination = player.transform.position;
+        playerDistance = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        Debug.Log(playerDistance);
+        //follow player
+        if (playerDistance <= detectionRange)
+        {
+            agent.destination = player.transform.position;
+        }
+        //attack ship
+        else
+        {
+            agent.destination = ship.transform.position;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

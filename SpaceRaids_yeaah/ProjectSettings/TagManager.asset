@@ -10,6 +10,7 @@ TagManager:
   - Ore
   - Animal
   - M_BasicEnemy
+  - Ship
   layers:
   - Default
   - TransparentFX
