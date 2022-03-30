@@ -25,6 +25,8 @@ public class PlayerController : ManagedObject
     //The empty object that sits in front of the player and serves as the place the bullets spawn from
     public Transform spawnPos;
 
+    public BuildMode buildMode;
+
     protected override void Initialize()
     {
         //get the rigidbody
@@ -32,6 +34,9 @@ public class PlayerController : ManagedObject
 
         //get the input system from game manager
         inputSystem = GameManager.Instance.GetComponent<InputSystem>();
+
+        //get the buildmode script from the player
+        buildMode = GetComponent<BuildMode>();
     }
 
 
@@ -64,6 +69,22 @@ public class PlayerController : ManagedObject
                 //Debug.Log("Shooting over");
             }
             #endregion
+
+            #region Build Mode
+            if (inputSystem.buildMode == 2) //if buildMode input is pressed
+            {
+                if (buildMode.isBuildModeActive())
+                {
+                    //send message to BuildMode script to deactivate build mode if its already on
+                    Notify(Category.GENERAL, "buildModeOff");
+                }
+                else
+                {
+                    //send message to BuildMode script to activate build mode if its currently off
+                    Notify(Category.GENERAL, "buildModeOn");
+                }
+            }
+            #endregion
         }
 
         #region Pause and unpause
@@ -79,6 +100,7 @@ public class PlayerController : ManagedObject
             }
         }
         #endregion
+
     }
 
     //Perform the player's physics update
