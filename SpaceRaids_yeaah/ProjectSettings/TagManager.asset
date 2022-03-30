@@ -11,7 +11,6 @@ TagManager:
   - Animal
   - M_BasicEnemy
   - Ship
-  - terrain
   layers:
   - Default
   - TransparentFX

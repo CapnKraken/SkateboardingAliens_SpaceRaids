@@ -51,7 +51,7 @@ public class M_BasicEnemy : ManagedObject
     private void Update()
     {
         playerDistance = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        //Debug.Log(playerDistance);
+        Debug.Log(playerDistance);
         //follow player
         if (playerDistance <= detectionRange)
         {

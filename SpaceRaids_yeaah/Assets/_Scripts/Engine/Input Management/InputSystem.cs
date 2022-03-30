@@ -17,7 +17,7 @@ public class InputSystem : MonoBehaviour
     //0: not pressed
     //1: held    (like GetKey())
     //2: pressed (like GetKeyDown())
-    public int shoot, pause, harvest, buildMode;
+    public int shoot, pause, harvest;
 
     //array of control profiles
     public ControlProfile[] profiles = new ControlProfile[3];
@@ -57,7 +57,6 @@ public class InputSystem : MonoBehaviour
 
             {"shoot", new GameInput("mouse 0", InputType.Key)},
             {"harvest", new GameInput("mouse 1", InputType.Key)},
-            {"buildMode", new GameInput("mouse 2", InputType.Key)},
             {"pause", new GameInput("escape", InputType.Key)},
         });
 
@@ -79,7 +78,6 @@ public class InputSystem : MonoBehaviour
 
             {"shoot", new GameInput("space", InputType.Key)},
             {"harvest", new GameInput("left shift", InputType.Key)},
-            {"buildMode", new GameInput("right shift", InputType.Key)},
             {"pause", new GameInput("escape", InputType.Key)},
         });
 
@@ -102,14 +100,12 @@ public class InputSystem : MonoBehaviour
 
             {"shoot", new GameInput("Axis 10", InputType.Axis)},
             {"harvest", new GameInput("Axis 9", InputType.Axis)},
-            {"buildMode", new GameInput("Axis 6", InputType.Key)},
             {"pause", new GameInput("Button 7", InputType.Button)},
         });
 
         //these inputs default to zero, i.e. they aren't being pressed
         shoot = 0;
         pause = 0;
-        buildMode = 0;
         harvest = 0;
     }
 
@@ -142,7 +138,6 @@ public class InputSystem : MonoBehaviour
             shoot = HandleActionInput(shoot, "shoot");
             pause = HandleActionInput(pause, "pause");
             harvest = HandleActionInput(harvest, "harvest");
-            buildMode = HandleActionInput(buildMode, "buildMode");
 
             #endregion
         }
@@ -153,7 +148,7 @@ public class InputSystem : MonoBehaviour
             //If we're rebinding a gamepad, we need to deal with both axes and buttons
             {
                 #region Gamepad rebinding
-                if (inputToRebind == "pause" || inputToRebind == "shoot" || inputToRebind == "harvest" || inputToRebind == "buildMode")
+                if (inputToRebind == "pause" || inputToRebind == "shoot" || inputToRebind == "harvest")
                 {
                 //these are action inputs, and they can be rebound to either a button or an axis
                     
