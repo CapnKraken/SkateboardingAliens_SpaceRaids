@@ -13731,7 +13731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6069721561914462879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27233,6 +27233,7 @@ GameObject:
   - component: {fileID: 6069721563730359828}
   - component: {fileID: 6069721563730359829}
   - component: {fileID: 6069721563730359832}
+  - component: {fileID: 6069721563730359833}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -27249,7 +27250,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 6069721563730359826}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -27331,6 +27332,19 @@ MonoBehaviour:
   highlighted: {fileID: 2100000, guid: b7c97e2be5d38f3418e15f6fdf2a7cd6, type: 2}
   inputSystem: {fileID: 0}
   materialText: {fileID: 1021881039}
+--- !u!65 &6069721563730359833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069721563730359826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!224 &6069721563749884756
 RectTransform:
   m_ObjectHideFlags: 0
