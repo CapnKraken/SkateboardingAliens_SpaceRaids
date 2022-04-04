@@ -412,7 +412,6 @@ GameObject:
   - component: {fileID: 6722999889328793506}
   - component: {fileID: 1040622005090957363}
   - component: {fileID: 1568962155499226079}
-  - component: {fileID: 5573986202256007489}
   m_Layer: 0
   m_Name: M_BasicEnemy
   m_TagString: M_BasicEnemy
@@ -483,7 +482,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1361569747709832710}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -505,19 +504,6 @@ MonoBehaviour:
   damageRange: {x: 5, y: 10}
   speedRange: {x: 5, y: 20}
   detectionRange: 50
---- !u!65 &5573986202256007489
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361569747709832710}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.5, z: 0.5}
-  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!1 &1777182883796843077
 GameObject:
   m_ObjectHideFlags: 0
