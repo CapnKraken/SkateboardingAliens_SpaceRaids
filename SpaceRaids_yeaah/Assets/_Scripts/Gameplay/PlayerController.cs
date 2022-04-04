@@ -10,7 +10,26 @@ public class PlayerController : ManagedObject
 {
     private InputSystem inputSystem;
     //public float walkingAcceleration; //the rate at which the player will reach his walking speed
-    public float walkingSpeed; //The maximum speed the player will move 
+
+    /// <summary>
+    /// The player's initial walking speed.
+    /// </summary>
+    public float walkingSpeed;
+
+    /// <summary>
+    /// The maximum attainable speed
+    /// </summary>
+    public float maxSpeed;
+
+    /// <summary>
+    /// This increases slowly over time while the player is walking forward.
+    /// </summary>
+    private float forwardSpeedAddition;
+
+    /// <summary>
+    /// How fast the player accelerates
+    /// </summary>
+    public float accelerationRate;
 
     //A reference to the main player object's rigidbody
     private Rigidbody rb;
@@ -47,8 +66,21 @@ public class PlayerController : ManagedObject
             shoot = inputSystem.shoot;
             //harvest = inputSystem.harvest;
 
+            walkMotion *= (walkingSpeed + forwardSpeedAddition * Time.deltaTime);
+
+            //Verify the speed is in check
+            if (walkMotion >= maxSpeed) walkMotion = maxSpeed;
+
+            strafeMotion *= walkingSpeed;
+
+            //handle acceleration
+            if(walkMotion != 0)
+            {
+                forwardSpeedAddition += accelerationRate;
+            }
+
             //Calculate the force to apply to the player by adding the two motion vectors together
-            playerVelocity = (transform.forward * walkMotion + transform.right * strafeMotion) * walkingSpeed + currentYVel;
+            playerVelocity = (transform.forward *walkMotion + transform.right * strafeMotion) + currentYVel;
 
             #region Handle Shooting
             //shoot is an int, a value of 2 is the equivalent of GetKeyDown (so it'll only activate on first frame of input)
@@ -84,6 +116,11 @@ public class PlayerController : ManagedObject
     //Perform the player's physics update
     private void FixedUpdate()
     {
+        if (rb.velocity.z == 0)
+        {
+            forwardSpeedAddition = 0;
+        }
+
         //adjust for gravity
         currentYVel = new Vector3(0, rb.velocity.y, 0);
 
@@ -108,4 +145,5 @@ public class PlayerController : ManagedObject
         }
     }
     #endregion
+
 }
