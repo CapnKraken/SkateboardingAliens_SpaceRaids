@@ -7548,7 +7548,7 @@ MonoBehaviour:
   relevantCategories: 04000000
   fireRate: 50
   damage: 10
-  speed: 300
+  speed: 100
   bulletPrefab: {fileID: 4390857468030789383, guid: 5330613f51ce76d489402824d40ab31d, type: 3}
 --- !u!1001 &1284929148
 PrefabInstance:
