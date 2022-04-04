@@ -7548,7 +7548,7 @@ MonoBehaviour:
   relevantCategories: 04000000
   fireRate: 50
   damage: 10
-  speed: 50
+  speed: 300
   bulletPrefab: {fileID: 4390857468030789383, guid: 5330613f51ce76d489402824d40ab31d, type: 3}
 --- !u!1001 &1284929148
 PrefabInstance:
@@ -18791,7 +18791,7 @@ MonoBehaviour:
   shoot: 0
   pause: 0
   harvest: 0
-  currentProfile: 1
+  currentProfile: 0
   cameraSensitivitySlider: {fileID: 6069721563216642251}
 --- !u!114 &6069721562538782987
 MonoBehaviour:
@@ -23571,7 +23571,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6069721562054026358}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 2000
+  m_MaxValue: 1000
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -27356,7 +27356,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   relevantCategories: 02000000
-  walkingSpeed: 20
+  walkingSpeed: 15
+  maxSpeed: 30
+  accelerationRate: 10
   spawnPos: {fileID: 6069721563126570803}
 --- !u!114 &6069721563730359829
 MonoBehaviour:

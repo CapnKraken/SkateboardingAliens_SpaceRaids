@@ -17,6 +17,11 @@ public class PlayerController : ManagedObject
     public float walkingSpeed;
 
     /// <summary>
+    /// The maximum attainable speed
+    /// </summary>
+    public float maxSpeed;
+
+    /// <summary>
     /// This increases slowly over time while the player is walking forward.
     /// </summary>
     private float forwardSpeedAddition;
@@ -61,7 +66,11 @@ public class PlayerController : ManagedObject
             shoot = inputSystem.shoot;
             //harvest = inputSystem.harvest;
 
-            walkMotion *= (walkingSpeed + forwardSpeedAddition);
+            walkMotion *= (walkingSpeed + forwardSpeedAddition * Time.deltaTime);
+
+            //Verify the speed is in check
+            if (walkMotion >= maxSpeed) walkMotion = maxSpeed;
+
             strafeMotion *= walkingSpeed;
 
             //handle acceleration
