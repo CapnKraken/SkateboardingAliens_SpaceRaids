@@ -27,6 +27,8 @@ public class PauseManager : ManagedObject
         GUIcanvas.enabled = false;
         inputSystem = GetComponent<InputSystem>();
 
+        Cursor.visible = false;
+
         SwapInputProfile(inputSystem.currentProfile);
     }
 
@@ -99,15 +101,31 @@ public class PauseManager : ManagedObject
             {
                 case "pause":
                     paused = true;
+
+                    //freeze the game
                     Time.timeScale = 0;
+
+                    //Show the pause menu
                     GUIcanvas.enabled = true;
                     SwitchPauseScreen(0);
+
+                    Cursor.visible = true;
+                    //Free cursor to move about the pause menu
+                    Cursor.lockState = CursorLockMode.None;
                     break;
                 case "resume":
                 case "unpause":
                     paused = false;
+
+                    //unfreeze the game
                     Time.timeScale = 1;
+
+                    //hide the pause menu
                     GUIcanvas.enabled = false;
+
+                    Cursor.visible = false;
+                    //Lock cursor to center of screen
+                    Cursor.lockState = CursorLockMode.Locked;
                     break;
                 default:break;
             }
