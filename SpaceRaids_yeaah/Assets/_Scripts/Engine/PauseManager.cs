@@ -28,6 +28,7 @@ public class PauseManager : ManagedObject
         inputSystem = GetComponent<InputSystem>();
 
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         SwapInputProfile(inputSystem.currentProfile);
     }
