@@ -151,8 +151,8 @@ public class InputSystem : MonoBehaviour
             pause = HandleActionInput(pause, "pause");
             harvest = HandleActionInput(harvest, "harvest");
             buildMode = HandleActionInput(buildMode, "buildMode");
-            rotateLeft = HandleActionInput(buildMode, "rotateLeft");
-            rotateRight = HandleActionInput(buildMode, "rotateRight");
+            rotateLeft = HandleActionInput(rotateLeft, "rotateLeft");
+            rotateRight = HandleActionInput(rotateRight, "rotateRight");
 
             #endregion
         }
