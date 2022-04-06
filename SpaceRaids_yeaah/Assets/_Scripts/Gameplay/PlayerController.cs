@@ -40,9 +40,12 @@ public class PlayerController : ManagedObject
     //These variables are set to their counterparts in inputSystem.
     private float strafeMotion, walkMotion;
     private int shoot;
+    private int buildModeInput;
 
     //The empty object that sits in front of the player and serves as the place the bullets spawn from
     public Transform spawnPos;
+
+    public BuildMode buildModeScript;
 
     protected override void Initialize()
     {
@@ -51,6 +54,9 @@ public class PlayerController : ManagedObject
 
         //get the input system from game manager
         inputSystem = GameManager.Instance.GetComponent<InputSystem>();
+
+        //get the buildmode script from the player
+        buildModeScript = GetComponent<BuildMode>();
     }
 
 
@@ -65,6 +71,7 @@ public class PlayerController : ManagedObject
             walkMotion = inputSystem.walkFront;
             shoot = inputSystem.shoot;
             //harvest = inputSystem.harvest;
+            buildModeInput = inputSystem.buildMode;
 
             walkMotion *= (walkingSpeed + forwardSpeedAddition * Time.deltaTime);
 
@@ -95,6 +102,23 @@ public class PlayerController : ManagedObject
                 Notify(Category.Shooting, "PlayerShoot_End");
                 //Debug.Log("Shooting over");
             }
+            #endregion
+
+            #region Build Mode
+            if (buildModeInput == 2) //if buildMode input is pressed
+            {
+                if (buildModeScript.isBuildModeActive())
+                {
+                    //send message to BuildMode script to deactivate build mode if its already on
+                    Notify(Category.GENERAL, "buildModeOff");
+                }
+                else
+                {
+                    //send message to BuildMode script to activate build mode if its currently off
+                    Notify(Category.GENERAL, "buildModeOn");
+                }
+            }
+
             #endregion
         }
 

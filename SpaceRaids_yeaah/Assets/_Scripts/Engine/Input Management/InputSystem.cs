@@ -17,7 +17,7 @@ public class InputSystem : MonoBehaviour
     //0: not pressed
     //1: held    (like GetKey())
     //2: pressed (like GetKeyDown())
-    public int shoot, pause, harvest;
+    public int shoot, pause, harvest, buildMode, rotateLeft, rotateRight;
 
     //array of control profiles
     public ControlProfile[] profiles = new ControlProfile[3];
@@ -52,11 +52,14 @@ public class InputSystem : MonoBehaviour
             {"strafeRight", new GameInput("d", InputType.Key)},
             {"strafeLeft", new GameInput("a", InputType.Key)},
 
-            {"itemSelectRight", new GameInput("e", InputType.Key)},
-            {"itemSelectLeft", new GameInput("q", InputType.Key)},
+            {"itemSelectRight", new GameInput("r", InputType.Key)},
+            {"itemSelectLeft", new GameInput("t", InputType.Key)},
 
             {"shoot", new GameInput("mouse 0", InputType.Key)},
             {"harvest", new GameInput("mouse 1", InputType.Key)},
+            {"buildMode", new GameInput("mouse 2", InputType.Key)},
+            {"rotateLeft", new GameInput("q", InputType.Key)},
+            {"rotateRight", new GameInput("e", InputType.Key)},
             {"pause", new GameInput("escape", InputType.Key)},
         });
 
@@ -78,6 +81,9 @@ public class InputSystem : MonoBehaviour
 
             {"shoot", new GameInput("space", InputType.Key)},
             {"harvest", new GameInput("left shift", InputType.Key)},
+            {"buildMode", new GameInput("right shift", InputType.Key)},
+            {"rotateLeft", new GameInput("r", InputType.Key)},
+            {"rotateRight", new GameInput("t", InputType.Key)},
             {"pause", new GameInput("escape", InputType.Key)},
         });
 
@@ -95,18 +101,24 @@ public class InputSystem : MonoBehaviour
             {"strafeRight", new GameInput("Axis 1", InputType.Axis)},
             {"strafeLeft", new GameInput("", InputType.Null)},
 
-            {"itemSelectRight", new GameInput("Button 5", InputType.Button)},
-            {"itemSelectLeft", new GameInput("Button 4", InputType.Button)},
+            {"itemSelectRight", new GameInput("Axis 7", InputType.Axis)},
+            {"itemSelectLeft", new GameInput("", InputType.Null)},
 
             {"shoot", new GameInput("Axis 10", InputType.Axis)},
             {"harvest", new GameInput("Axis 9", InputType.Axis)},
+            {"buildMode", new GameInput("Button 6", InputType.Button)},
+            {"rotateLeft", new GameInput("Button 5", InputType.Button)},
+            {"rotateRight", new GameInput("Button 4", InputType.Button)},
             {"pause", new GameInput("Button 7", InputType.Button)},
         });
 
         //these inputs default to zero, i.e. they aren't being pressed
         shoot = 0;
         pause = 0;
+        buildMode = 0;
         harvest = 0;
+        rotateLeft = 0;
+        rotateRight = 0;
     }
 
     void Update()
@@ -138,6 +150,9 @@ public class InputSystem : MonoBehaviour
             shoot = HandleActionInput(shoot, "shoot");
             pause = HandleActionInput(pause, "pause");
             harvest = HandleActionInput(harvest, "harvest");
+            buildMode = HandleActionInput(buildMode, "buildMode");
+            rotateLeft = HandleActionInput(rotateLeft, "rotateLeft");
+            rotateRight = HandleActionInput(rotateRight, "rotateRight");
 
             #endregion
         }
@@ -148,7 +163,7 @@ public class InputSystem : MonoBehaviour
             //If we're rebinding a gamepad, we need to deal with both axes and buttons
             {
                 #region Gamepad rebinding
-                if (inputToRebind == "pause" || inputToRebind == "shoot" || inputToRebind == "harvest")
+                if (inputToRebind == "pause" || inputToRebind == "shoot" || inputToRebind == "harvest" || inputToRebind == "buildMode" || inputToRebind == "rotateRight" || inputToRebind == "rotateLeft")
                 {
                 //these are action inputs, and they can be rebound to either a button or an axis
                     
