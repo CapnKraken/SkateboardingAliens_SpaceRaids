@@ -115,6 +115,7 @@ public class BuildMode : ManagedObject
                 }
 
 
+                // it should only activate once since the input int is 2, but instead it's rotating them every frame the key is held down
                 if (inputSystem.rotateLeft == 2)
                 {
                     tempObject.transform.Rotate(0f, -90f, 0f, Space.World);
