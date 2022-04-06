@@ -99,6 +99,7 @@ public class BuildMode : ManagedObject
         {
             if (isBuildModeActive())
             {
+
                 if (placeNow == true)
                 {
                     SendRay();
@@ -114,6 +115,8 @@ public class BuildMode : ManagedObject
                     PlaceWall();
                 }
 
+                //Prevent nullrefs
+                if (!tempObjectExists) return;
 
                 // it should only activate once since the input int is 2, but instead it's rotating them every frame the key is held down
                 if (inputSystem.itemRotate == 2)
