@@ -39,7 +39,20 @@ public class BuildMode : ManagedObject
 
     public bool tempObjectExists;
 
+    /// <summary>
+    /// Controls the spacing of placed objects.
+    /// </summary>
+    public float gridUnit;
 
+    /// <summary>
+    /// How far away the player is allowed to build.
+    /// </summary>
+    public float maxBuildDistance;
+
+    /// <summary>
+    /// Store the rotation of the objects you're placing.
+    /// </summary>
+    private Vector3 tempObjectRotation;
 
     protected override void Initialize()
     {
@@ -54,6 +67,8 @@ public class BuildMode : ManagedObject
 
         //disables the Build HUD at the start
         buildHUD.GetComponent<Canvas>().enabled = false;
+
+        tempObjectRotation = Vector3.zero;
 
     }
 
@@ -122,12 +137,13 @@ public class BuildMode : ManagedObject
                 if (inputSystem.itemRotate == 2)
                 {
                     tempObject.transform.Rotate(0f, -90f, 0f, Space.World);
+                    tempObjectRotation.y -= 90f;
                 }
 
-                if (inputSystem.itemSwap == 2)
-                {
-                    tempObject.transform.Rotate(0f, 90f, 0f, Space.World);
-                }
+                //if (inputSystem.itemSwap == 2)
+                //{
+                //    tempObject.transform.Rotate(0f, 90f, 0f, Space.World);
+                //}
             }
 
         }
@@ -140,18 +156,30 @@ public class BuildMode : ManagedObject
         {
             place = new Vector3(hit.point.x, hit.point.y, hit.point.z);
 
+            if (Vector3.Distance(transform.position, place) > maxBuildDistance)
+            {
+                //Don't show the ghost wall if you're pointing somewhere you can't actually place
+                if(tempObjectExists)
+                {
+                    Destroy(tempObject);
+                    tempObjectExists = false;
+                }
+                //exit the sendRay method
+                return;
+            }
+
             if (hit.transform.tag == "terrain")
             {
                 if (tempObjectExists == false)
                 {
-                    Instantiate(tempWall, place, Quaternion.identity);
+                    Instantiate(tempWall, place, Quaternion.Euler(tempObjectRotation));
                     tempObject = GameObject.Find("WhiteWall(Clone)");
                     tempObjectExists = true;
                 }
 
                 if (inputSystem.harvest == 2)
                 {
-                    Instantiate(objectToPlace, place, tempObject.transform.rotation);
+                    Instantiate(objectToPlace, RoundXandZ(gridUnit, place), tempObject.transform.rotation);
                     placeNow = false;
                     placeWall = false;
                     Destroy(tempObject);
@@ -160,7 +188,7 @@ public class BuildMode : ManagedObject
 
                 if (tempObject != null)
                 {
-                    tempObject.transform.position = place;
+                    tempObject.transform.position = RoundXandZ(gridUnit, place);
                 }
             }
 
@@ -174,6 +202,15 @@ public class BuildMode : ManagedObject
         }
     }
 
+    private Vector3 RoundXandZ(float unit, Vector3 current)
+    {
+        Vector3 final = current;
+
+        final.x = Mathf.Round(current.x / unit) * unit;
+        final.z = Mathf.Round(current.z / unit) * unit;
+
+        return final;
+    }
     public void PlaceWall()
     {
         placeNow = true;

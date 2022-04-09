@@ -29108,6 +29108,8 @@ MonoBehaviour:
   placeNow: 0
   placeWall: 0
   tempObjectExists: 0
+  gridUnit: 3
+  maxBuildDistance: 30
 --- !u!224 &6069721563749884756
 RectTransform:
   m_ObjectHideFlags: 0
