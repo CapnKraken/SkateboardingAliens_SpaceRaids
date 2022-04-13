@@ -30,8 +30,18 @@ public class BuildMode : ManagedObject
 
     private RaycastHit hit;
 
-    public GameObject objectToPlace, tempObject;
-    public GameObject wall, tempWall;
+    public GameObject objectToPlace, tempObject, selectedObject, tempSelectedObject;
+    public GameObject wall, tempWall, barrier, tempBarrier, turret, tempTurret;
+
+    public PlayerMaterial playerMaterial;
+    private float materialAmount;
+    private float materialCost;
+
+    public Wall wallScript;
+    public Barrier barrierScript;
+    public Turret turretScript;
+
+    private int z = 1; //used for changing items
 
     public bool placeNow;
 
@@ -62,6 +72,8 @@ public class BuildMode : ManagedObject
         //gets input system script
         inputSystem = FindObjectOfType<InputSystem>();
 
+        playerMaterial = FindObjectOfType<PlayerMaterial>();
+
         //attaches the Build_HUD canvas as a gameobject
         buildHUD = GameObject.Find("Build_HUD");
 
@@ -69,6 +81,15 @@ public class BuildMode : ManagedObject
         buildHUD.GetComponent<Canvas>().enabled = false;
 
         tempObjectRotation = Vector3.zero;
+
+        selectedObject = wall; //sets wall as default building item
+        tempSelectedObject = tempWall;
+
+        wallScript = wall.GetComponent<Wall>();
+        barrierScript = barrier.GetComponent<Barrier>();
+        turretScript = turret.GetComponent<Turret>();
+
+        materialCost = wallScript.MaterialCost();
 
     }
 
@@ -114,7 +135,7 @@ public class BuildMode : ManagedObject
         {
             if (isBuildModeActive())
             {
-
+                PlaceWall(); //calls method once at very beginning of activating build mode to have temp wall appear
                 if (placeNow == true)
                 {
                     SendRay();
@@ -122,12 +143,13 @@ public class BuildMode : ManagedObject
 
                 if (placeWall == true)
                 {
-                    objectToPlace = wall;
+                    objectToPlace = selectedObject;
                 }
 
                 if (inputSystem.harvest == 2)
                 {
-                    PlaceWall();
+                    //PlaceWall();
+                    
                 }
 
                 //Prevent nullrefs
@@ -140,10 +162,31 @@ public class BuildMode : ManagedObject
                     tempObjectRotation.y -= 90f;
                 }
 
-                //if (inputSystem.itemSwap == 2)
-                //{
-                //    tempObject.transform.Rotate(0f, 90f, 0f, Space.World);
-                //}
+                if (inputSystem.itemSwap == 2) //switches between the three different objects
+                {
+                    z = (z % 3) + 1;
+                    
+                    if(z == 1)
+                    {
+                        selectedObject = wall;
+                        tempSelectedObject = tempWall;
+                        materialCost = wallScript.MaterialCost();
+                    }
+                    else if(z == 2)
+                    {
+                        selectedObject = barrier;
+                        tempSelectedObject = tempBarrier;
+                        materialCost = barrierScript.MaterialCost();
+                    }
+                    else if (z == 3)
+                    {
+                        selectedObject = turret;
+                        tempSelectedObject = tempTurret;
+                        materialCost = turretScript.MaterialCost();
+                    }
+                    Destroy(tempObject); //refreshes the temporary object after switching
+                    tempObjectExists = false;
+                }
             }
 
         }
@@ -172,18 +215,23 @@ public class BuildMode : ManagedObject
             {
                 if (tempObjectExists == false)
                 {
-                    Instantiate(tempWall, place, Quaternion.Euler(tempObjectRotation));
-                    tempObject = GameObject.Find("WhiteWall(Clone)");
+                    Instantiate(tempSelectedObject, place, Quaternion.Euler(tempObjectRotation));
+                    tempObject = GameObject.Find(tempSelectedObject.name + "(Clone)");
                     tempObjectExists = true;
                 }
 
                 if (inputSystem.harvest == 2)
                 {
-                    Instantiate(objectToPlace, RoundXandZ(gridUnit, place), tempObject.transform.rotation);
-                    placeNow = false;
-                    placeWall = false;
-                    Destroy(tempObject);
-                    tempObjectExists = false;
+                    if(playerMaterial.GetMaterialAmount() >= materialCost) //if player has enough materials
+                    {
+                        PlayerMaterial.changeMaterial(-1 * materialCost); //subtracts material amount from player
+
+                        Instantiate(objectToPlace, RoundXandZ(gridUnit, place), tempObject.transform.rotation);
+                        placeNow = false;
+                        placeWall = false;
+                        Destroy(tempObject);
+                        tempObjectExists = false;
+                    }
                 }
 
                 if (tempObject != null)

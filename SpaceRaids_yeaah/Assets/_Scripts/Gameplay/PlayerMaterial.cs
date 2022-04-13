@@ -15,7 +15,7 @@ public class PlayerMaterial : MonoBehaviour
     public InputSystem inputSystem; //variable for the input system script
     private int harvestInput; //controller value
 
-    private static float material = 0; //amount of material
+    private static float material = 100; //amount of material
 
     public Text materialText; //text for displaying amount of material
 
@@ -121,6 +121,11 @@ public class PlayerMaterial : MonoBehaviour
         {
             material = 0; //material amount cannot go lower than zero
         }
+    }
+
+    public float GetMaterialAmount()
+    {
+        return material;
     }
 
     public void wipeTexture() //removes stored texture value;
