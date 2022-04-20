@@ -92,9 +92,10 @@ GameObject:
   - component: {fileID: 8775915687075972204}
   - component: {fileID: 8893458264169184615}
   - component: {fileID: 1854528993152416547}
+  - component: {fileID: 3669349923602097846}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,3 +140,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7abdae4b8fb814282b18e70cd62b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  relevantCategories: 
+  health: 0
+  maxHealth: 0
+  materialCost: 0
+  fireRate: 0
+  damage: 0
+  speed: 0
+  bulletPrefab: {fileID: 4390857468030789383, guid: 5330613f51ce76d489402824d40ab31d, type: 3}
+--- !u!208 &3669349923602097846
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093870155681898318}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.75, y: 2, z: 0.75}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 2, z: 0}
+  m_TimeToStationary: 0.5

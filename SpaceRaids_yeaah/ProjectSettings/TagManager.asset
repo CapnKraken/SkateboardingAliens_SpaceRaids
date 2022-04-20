@@ -12,6 +12,9 @@ TagManager:
   - M_BasicEnemy
   - Ship
   - terrain
+  - Wall
+  - Barrier
+  - Turret
   layers:
   - Default
   - TransparentFX

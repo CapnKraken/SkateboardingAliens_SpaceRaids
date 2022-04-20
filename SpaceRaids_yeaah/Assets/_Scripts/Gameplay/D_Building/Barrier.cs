@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Barrier : BuildingObjectBase
 {
+    public override float MaxHealth()
+    {
+        return 75;
+    }
+
     public override float BuildingHealth()
     {
         return 75;
