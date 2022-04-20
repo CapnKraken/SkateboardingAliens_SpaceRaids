@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 2004080}
   - component: {fileID: 2004079}
   - component: {fileID: 2004078}
+  - component: {fileID: 2004081}
   m_Layer: 5
   m_Name: ControlConfigButton
   m_TagString: Untagged
@@ -302,16 +303,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782987}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: SwitchPauseScreen
-        m_Mode: 3
+      - m_Target: {fileID: 2004081}
+        m_TargetAssemblyTypeName: PauseMenuButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Config
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2004079
@@ -352,6 +353,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004076}
   m_CullTransparentMesh: 1
+--- !u!114 &2004081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5e59505a584ab4abe1495841124148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4471818
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,6 +2727,7 @@ GameObject:
   - component: {fileID: 417827608}
   - component: {fileID: 417827607}
   - component: {fileID: 417827606}
+  - component: {fileID: 417827609}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -2785,16 +2799,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782987}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: SwitchPauseScreen
-        m_Mode: 3
+      - m_Target: {fileID: 417827609}
+        m_TargetAssemblyTypeName: PauseMenuButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Settings
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &417827607
@@ -2835,6 +2849,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417827604}
   m_CullTransparentMesh: 1
+--- !u!114 &417827609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417827604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5e59505a584ab4abe1495841124148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &423095376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4233,7 +4259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &678869329
 MonoBehaviour:
@@ -4382,7 +4408,7 @@ Transform:
   m_Children:
   - {fileID: 1723128867}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744925454
 GameObject:
@@ -4944,7 +4970,7 @@ Transform:
   m_LocalScale: {x: 30, y: 10, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &836828987
 SphereCollider:
@@ -5095,6 +5121,7 @@ GameObject:
   - component: {fileID: 867495447}
   - component: {fileID: 867495446}
   - component: {fileID: 867495445}
+  - component: {fileID: 867495448}
   m_Layer: 5
   m_Name: QuitGameButton
   m_TagString: Untagged
@@ -5166,16 +5193,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782987}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
+      - m_Target: {fileID: 867495448}
+        m_TargetAssemblyTypeName: PauseMenuButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Quit
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &867495446
@@ -5216,6 +5243,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867495443}
   m_CullTransparentMesh: 1
+--- !u!114 &867495448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867495443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5e59505a584ab4abe1495841124148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &870470754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5469,6 +5508,49 @@ Transform:
   m_Father: {fileID: 458861732}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &874625625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874625627}
+  - component: {fileID: 874625626}
+  m_Layer: 0
+  m_Name: JumpStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &874625626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874625625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23cd3aa8d969324e890e553cc19cf41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &874625627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874625625}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 99.923615, y: -153.53542, z: 527.76514}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &876477090
 GameObject:
   m_ObjectHideFlags: 0
@@ -5598,11 +5680,11 @@ GameObject:
   - component: {fileID: 899027077}
   m_Layer: 5
   m_Name: SettingsBackground
-  m_TagString: Untagged
+  m_TagString: PauseMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &899027076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6615,7 +6697,7 @@ Transform:
   - {fileID: 1336346371}
   - {fileID: 1803726386}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1029513174
 PrefabInstance:
@@ -9816,7 +9898,7 @@ GameObject:
   - component: {fileID: 1523155031}
   m_Layer: 5
   m_Name: MainPauseBackground
-  m_TagString: Untagged
+  m_TagString: PauseMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10207,7 +10289,7 @@ Transform:
   m_Children:
   - {fileID: 999589}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1602728667
 PrefabInstance:
@@ -11949,6 +12031,7 @@ GameObject:
   - component: {fileID: 1889808217}
   - component: {fileID: 1889808216}
   - component: {fileID: 1889808215}
+  - component: {fileID: 1889808218}
   m_Layer: 5
   m_Name: ResetButton
   m_TagString: Untagged
@@ -12020,16 +12103,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782987}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
+      - m_Target: {fileID: 1889808218}
+        m_TargetAssemblyTypeName: PauseMenuButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Quit
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1889808216
@@ -12070,6 +12153,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889808213}
   m_CullTransparentMesh: 1
+--- !u!114 &1889808218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889808213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5e59505a584ab4abe1495841124148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1896120091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12739,6 +12834,7 @@ GameObject:
   - component: {fileID: 2038124208}
   - component: {fileID: 2038124207}
   - component: {fileID: 2038124206}
+  - component: {fileID: 2038124209}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -12810,16 +12906,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782987}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: SwitchPauseScreen
-        m_Mode: 3
+      - m_Target: {fileID: 2038124209}
+        m_TargetAssemblyTypeName: PauseMenuButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Main
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2038124207
@@ -12860,6 +12956,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038124204}
   m_CullTransparentMesh: 1
+--- !u!114 &2038124209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038124204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5e59505a584ab4abe1495841124148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2041709258
 GameObject:
   m_ObjectHideFlags: 0
@@ -13385,7 +13493,7 @@ RectTransform:
   m_Children:
   - {fileID: 1736344925}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14213,7 +14321,7 @@ GameObject:
   - component: {fileID: 6069721561720073657}
   m_Layer: 5
   m_Name: Profile1Edit
-  m_TagString: Untagged
+  m_TagString: ControlProfile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15349,7 +15457,7 @@ RectTransform:
   - {fileID: 417827605}
   - {fileID: 2004077}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15414,7 +15522,7 @@ GameObject:
   - component: {fileID: 6069721561914462879}
   m_Layer: 5
   m_Name: GUI_Canvas
-  m_TagString: Untagged
+  m_TagString: GUICanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18297,7 +18405,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6069721562297166646
 GameObject:
@@ -18387,7 +18495,7 @@ RectTransform:
   - {fileID: 1021881038}
   - {fileID: 587614107}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -21461,11 +21569,11 @@ GameObject:
   - component: {fileID: 6069721562674633341}
   m_Layer: 5
   m_Name: Profile2Edit
-  m_TagString: Untagged
+  m_TagString: ControlProfile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6069721562678635914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23455,11 +23563,11 @@ GameObject:
   - component: {fileID: 6069721562911890272}
   m_Layer: 5
   m_Name: Profile3Edit
-  m_TagString: Untagged
+  m_TagString: ControlProfile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6069721562911890275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25180,9 +25288,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6069721562538782986}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: SetCameraSensitivity
+      - m_Target: {fileID: 417827609}
+        m_TargetAssemblyTypeName: PauseMenuButton, Assembly-CSharp
+        m_MethodName: OnSliderChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25204,7 +25312,7 @@ GameObject:
   - component: {fileID: 6069721563216642251}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: camsenseslider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28994,7 +29102,7 @@ Transform:
   m_Children:
   - {fileID: 6069721562499326221}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 148.69, z: 0}
 --- !u!54 &6069721563730359831
 Rigidbody:
@@ -29208,7 +29316,7 @@ GameObject:
   - component: {fileID: 6069721563764289726}
   m_Layer: 5
   m_Name: ControlConfigBackground
-  m_TagString: Untagged
+  m_TagString: PauseMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

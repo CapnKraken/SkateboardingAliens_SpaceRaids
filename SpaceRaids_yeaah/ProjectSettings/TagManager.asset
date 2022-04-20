@@ -12,9 +12,16 @@ TagManager:
   - M_BasicEnemy
   - Ship
   - terrain
+<<<<<<< HEAD
   - Wall
   - Barrier
   - Turret
+=======
+  - camsenseslider
+  - GUICanvas
+  - ControlProfile
+  - PauseMenu
+>>>>>>> Matthew_TitleScreen
   layers:
   - Default
   - TransparentFX

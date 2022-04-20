@@ -56,8 +56,10 @@ public abstract class ManagedObject : MonoBehaviour
 
     public void OnDestroy()
     {
-        messenger.RemoveListener(this);
         DeInitialize();
+
+        if (messenger == null) return;
+        messenger.RemoveListener(this);
     }
 
     /// <summary>
