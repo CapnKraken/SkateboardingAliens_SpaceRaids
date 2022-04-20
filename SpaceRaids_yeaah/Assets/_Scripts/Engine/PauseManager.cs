@@ -23,6 +23,23 @@ public class PauseManager : ManagedObject
 
     protected override void Initialize()
     {
+
+        if(SceneManager.GetActiveScene().name == "TitleScene")
+        {
+            this.enabled = false;
+            return;
+        }
+
+        //Set up canvas objects
+        GUIcanvas = GameObject.FindGameObjectWithTag("GUICanvas").GetComponent<Canvas>();
+        GameObject[] controlProfiles = GameObject.FindGameObjectsWithTag("ControlProfile");
+
+        Debug.Log(controlProfiles.Length);
+
+        profile1Gui = controlProfiles[0];
+        profile2Gui = controlProfiles[1];
+        profile3Gui = controlProfiles[2];
+
         paused = false;
         GUIcanvas.enabled = false;
         inputSystem = GetComponent<InputSystem>();
@@ -31,6 +48,14 @@ public class PauseManager : ManagedObject
         Cursor.lockState = CursorLockMode.Locked;
 
         SwapInputProfile(inputSystem.currentProfile);
+    }
+
+    /// <summary>
+    /// For the gamemanager to call
+    /// </summary>
+    public void ReInitialize()
+    {
+        Initialize();
     }
 
     public void SwitchPauseScreen(int index)
@@ -90,7 +115,10 @@ public class PauseManager : ManagedObject
     /// </summary>
     public void QuitGame()
     {
-        Application.Quit();
+        //Application.Quit();
+
+        //load the title scene
+        SceneManager.LoadScene("TitleScene");
     }
 
     #region Notifications

@@ -12,6 +12,9 @@ TagManager:
   - M_BasicEnemy
   - Ship
   - terrain
+  - camsenseslider
+  - GUICanvas
+  - ControlProfile
   layers:
   - Default
   - TransparentFX

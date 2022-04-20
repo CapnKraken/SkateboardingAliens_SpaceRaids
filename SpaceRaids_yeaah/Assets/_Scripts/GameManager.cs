@@ -4,6 +4,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// A singleton class to operate as the heart of the game's code. <br/>
@@ -40,6 +42,10 @@ public class GameManager : MonoBehaviour
             //Get rid of it if there's already one in the scene.
             Destroy(this.gameObject);
         }
+        else if(_instance != null && _instance == this)
+        {
+            Initialize();
+        }
         else
         {
             _instance = this;
@@ -63,9 +69,18 @@ public class GameManager : MonoBehaviour
         //construct the messenger
         messenger = new Messenger();
 
-        pauseManager = GetComponent<PauseManager>();
+        //only need the pause manager, input manager etc. if the scene is the game scene
+        if (SceneManager.GetActiveScene().name == "GameScene")
+        {
+            pauseManager = GetComponent<PauseManager>();
 
-        inputSystem = GetComponent<InputSystem>();
+            inputSystem = GetComponent<InputSystem>();
+
+            inputSystem.cameraSensitivitySlider = GameObject.FindGameObjectWithTag("camsenseslider").GetComponent<Slider>();
+
+            //Reboot the pause manager
+            pauseManager.ReInitialize();
+        }
     }
 
     #region Screen Setup
