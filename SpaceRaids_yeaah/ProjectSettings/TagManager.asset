@@ -3,6 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< Updated upstream
   tags:
   - enemy
   - Bullet
@@ -12,6 +13,9 @@ TagManager:
   - M_BasicEnemy
   - Ship
   - terrain
+=======
+  tags: []
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
