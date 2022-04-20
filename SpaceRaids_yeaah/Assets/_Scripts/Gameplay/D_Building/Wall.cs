@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Wall : BuildingObjectBase
 {
+    public override float MaxHealth()
+    {
+        return 75;
+    }
+
     public override float BuildingHealth()
     {
-        return 100;
+        return 75;
     }
 
     public override float MaterialCost()
