@@ -15,6 +15,7 @@ TagManager:
   - camsenseslider
   - GUICanvas
   - ControlProfile
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

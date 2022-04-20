@@ -40,8 +40,12 @@ public class PauseManager : ManagedObject
         profile2Gui = controlProfiles[1];
         profile3Gui = controlProfiles[2];
 
+        pauseMenus = new List<GameObject>();
+        pauseMenus.AddRange(GameObject.FindGameObjectsWithTag("PauseMenu"));
+
         paused = false;
         GUIcanvas.enabled = false;
+        Time.timeScale = 1;
         inputSystem = GetComponent<InputSystem>();
 
         Cursor.visible = false;
@@ -83,19 +87,19 @@ public class PauseManager : ManagedObject
         {
             //activate the current input profile and hide the rest
             case 0:
-                profile1Gui.SetActive(true);
-                profile2Gui.SetActive(false);
-                profile3Gui.SetActive(false);
+                profile1Gui.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -45, 0);
+                profile2Gui.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 100000, 0);
+                profile3Gui.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 100000, 0);
                 break;
             case 1:
-                profile1Gui.SetActive(false);
-                profile2Gui.SetActive(true);
-                profile3Gui.SetActive(false); 
+                profile1Gui.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 100000, 0);
+                profile2Gui.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -45, 0);
+                profile3Gui.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 100000, 0);
                 break;
             case 2:
-                profile1Gui.SetActive(false);
-                profile2Gui.SetActive(false);
-                profile3Gui.SetActive(true);
+                profile1Gui.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 100000, 0);
+                profile2Gui.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 100000, 0);
+                profile3Gui.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -45, 0);
                 break;
             default:break;
         }

@@ -42,10 +42,6 @@ public class GameManager : MonoBehaviour
             //Get rid of it if there's already one in the scene.
             Destroy(this.gameObject);
         }
-        else if(_instance != null && _instance == this)
-        {
-            Initialize();
-        }
         else
         {
             _instance = this;
@@ -59,7 +55,6 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
-
 
     /// <summary>
     /// Called after creating the singleton. Place setup information here.
@@ -75,12 +70,17 @@ public class GameManager : MonoBehaviour
             pauseManager = GetComponent<PauseManager>();
 
             inputSystem = GetComponent<InputSystem>();
-
-            inputSystem.cameraSensitivitySlider = GameObject.FindGameObjectWithTag("camsenseslider").GetComponent<Slider>();
-
-            //Reboot the pause manager
-            pauseManager.ReInitialize();
         }
+    }
+
+    //I hate it I hate it I hate it
+    public void JumpStart()
+    {
+        //Reboot the pause manager
+        Debug.Log("Reinitializing pausemanager");
+        pauseManager.ReInitialize();
+
+        inputSystem.cameraSensitivitySlider = GameObject.FindGameObjectWithTag("camsenseslider").GetComponent<Slider>();
     }
 
     #region Screen Setup
