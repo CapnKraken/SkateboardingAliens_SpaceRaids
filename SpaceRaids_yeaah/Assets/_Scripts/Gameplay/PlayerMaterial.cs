@@ -83,9 +83,9 @@ public class PlayerMaterial : MonoBehaviour
                 }
                 else if (selectionTransform.CompareTag("Animal"))
                 {
-                    if (timer >= 2)
+                    if (timer >= .01)
                     {
-                        changeMaterial(25);
+                        changeMaterial(1);
                         wipeTexture();
                         Destroy(selectionTransform.gameObject);
                         timer = 0;
