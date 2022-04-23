@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3624792178847619208}
   - component: {fileID: 1375715521118532763}
   - component: {fileID: 1772697253749599873}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BarrierBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2846869027862451091}
   - component: {fileID: 3729843235854177881}
   - component: {fileID: 7146158136858379787}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BarrierField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 1696569840430365433}
   - component: {fileID: 9207541730185681383}
   - component: {fileID: 4735383979020075201}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Barrier
   m_TagString: Barrier
   m_Icon: {fileID: 0}

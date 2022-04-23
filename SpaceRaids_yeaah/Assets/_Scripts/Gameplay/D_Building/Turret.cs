@@ -12,6 +12,12 @@ public class Turret : BuildingObjectBase
     public float speed;
 
     public GameObject bulletPrefab;
+    public GameObject pivot;
+    public GameObject bulletSpawn;
+    //public GameObject target;
+    public Transform targetTransform;
+    public bool targetInRange;
+    public GameObject turretRadius;
 
     private float fireDelay;
     private float fireTimer;
@@ -20,12 +26,12 @@ public class Turret : BuildingObjectBase
 
     public override float MaxHealth()
     {
-        return 100;
+        return 75;
     }
 
     public override float BuildingHealth()
     {
-        return 100;
+        return 75;
     }
 
     public override float MaterialCost()
@@ -35,22 +41,57 @@ public class Turret : BuildingObjectBase
 
     protected override void Initialize()
     {
+        fireRate = 25;
+        speed = 20;
+        damage = 100;
+
+        targetInRange = turretRadius.GetComponent<TurretRadius>().targetInRange;
+        //target = turretRadius.GetComponent<TurretRadius>().target;
+
         isFiring = false;
 
         fireTimer = 0;
 
         fireDelay = 1 / fireRate;
+
+        //bulletPrefab = Resources.Load("Assets/Prefabs/Projectiles.Turretbullet", GameObject) as GameObject;
     }
 
     public override void Update()
     {
+        
+        
         if (BuildingHealth() <= 0)
         {
             Destroy(gameObject);
         }
 
-        if (isFiring)
+        if(turretRadius.GetComponent<TurretRadius>().target != null && BuildingHealth() != 0)
         {
+            if(turretRadius.GetComponent<TurretRadius>().targetInRange == true)
+            {
+                 //targetInRange = true;
+                pivot.transform.LookAt(turretRadius.GetComponent<TurretRadius>().target.transform);
+                
+                isFiring = true;
+            }
+            else
+            {
+                //targetInRange = false;
+                isFiring = false;
+            }
+        }
+        else
+        {
+            //targetInRange = false;
+            isFiring = false;
+        }
+
+
+
+
+        if (isFiring)
+       {
             fireTimer -= Time.deltaTime;
             if (fireTimer <= 0)
             {
@@ -59,10 +100,16 @@ public class Turret : BuildingObjectBase
                 Shoot();
             }
         }
+        
     }
 
-    static void Shoot()
+    private void Shoot()
     {
+        Vector3 newRotation = bulletSpawn.transform.rotation.eulerAngles + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), Random.Range(-3f, 3f));
+        TurretBullet t = Instantiate(bulletPrefab, bulletSpawn.transform.position + bulletSpawn.transform.forward * 2, Quaternion.Euler(newRotation)).GetComponent<TurretBullet>();
+        t.SetVars(speed, damage);
 
+        //destroy the projectile after 7 seconds
+        Destroy(t.gameObject, 7.0f);
     }
 }
