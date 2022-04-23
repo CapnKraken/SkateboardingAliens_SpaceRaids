@@ -4,24 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
-  - Bullet
   - Tree
+  - Ship
+  - PauseMenu
   - Ore
   - Animal
-  - M_BasicEnemy
-  - Ship
   - terrain
-<<<<<<< HEAD
+  - ControlProfile
+  - GUICanvas
+  - camsenseslider
+  - M_BasicEnemy
   - Wall
   - Barrier
   - Turret
-=======
-  - camsenseslider
-  - GUICanvas
-  - ControlProfile
-  - PauseMenu
->>>>>>> Matthew_TitleScreen
   layers:
   - Default
   - TransparentFX
@@ -29,8 +24,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Barrier
   - 
   - 
   - 
