@@ -70,6 +70,7 @@ public class Upgrades : MonoBehaviour
         if (playerMaterial.GetMaterialAmount() >= inHealthCost)
         {
             healthHandler.ChangeMaxHealth(10);
+            healthHandler.changeHealth(10);
             PlayerMaterial.changeMaterial(inHealthCost * -1);
             inHealthCost = inHealthCost * 2; //cost doubles each time
         }
@@ -89,6 +90,7 @@ public class Upgrades : MonoBehaviour
 
     public void IncreaseFireSpeed()
     {
+        Debug.Log("Increase Fire Speed");
         if (playerMaterial.GetMaterialAmount() >= inFireSpeedCost)
         {
             standardGun.ChangeFireSpeed(10);

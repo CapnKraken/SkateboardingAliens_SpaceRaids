@@ -47,7 +47,7 @@ public class PlayerHealthHandler : ManagedObject
         healthText.text = $"Health: {Mathf.Round(health)}";
     }
 
-    private void changeHealth(float amount)
+    public void changeHealth(float amount)
     {
         //Method to increase or decrease the player health, and make sure it never goes below 0 or above maxHealth
         health += amount;
