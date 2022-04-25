@@ -89,7 +89,7 @@ public class BuildMode : ManagedObject
         barrierScript = barrier.GetComponent<Barrier>();
         turretScript = turret.GetComponent<Turret>();
 
-        materialCost = wallScript.MaterialCost();
+        materialCost = Wall.materialCost;
 
     }
 
@@ -170,19 +170,19 @@ public class BuildMode : ManagedObject
                     {
                         selectedObject = wall;
                         tempSelectedObject = tempWall;
-                        materialCost = wallScript.MaterialCost();
+                        materialCost = Wall.materialCost;
                     }
                     else if(z == 2)
                     {
                         selectedObject = barrier;
                         tempSelectedObject = tempBarrier;
-                        materialCost = barrierScript.MaterialCost();
+                        materialCost = Barrier.materialCost;
                     }
                     else if (z == 3)
                     {
                         selectedObject = turret;
                         tempSelectedObject = tempTurret;
-                        materialCost = turretScript.MaterialCost();
+                        materialCost = Turret.materialCost;
                     }
                     Destroy(tempObject); //refreshes the temporary object after switching
                     tempObjectExists = false;

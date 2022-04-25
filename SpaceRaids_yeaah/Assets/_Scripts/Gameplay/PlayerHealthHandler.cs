@@ -62,6 +62,11 @@ public class PlayerHealthHandler : ManagedObject
         }
     }
 
+    public void ChangeMaxHealth(float amount)
+    {
+        maxHealth += amount;
+    }
+
 
     #region Notifications
 
