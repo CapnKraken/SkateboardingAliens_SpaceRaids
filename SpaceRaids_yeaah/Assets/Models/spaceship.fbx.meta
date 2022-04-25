@@ -3,7 +3,42 @@ guid: bdafaa1d79972dc48bef013a9290fb27
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassBlack
+    second: {fileID: 2100000, guid: 5e2ccd273f088fe47b9d5353d88f93ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Green
+    second: {fileID: 2100000, guid: 20eaa8942be6d234ab28c49d1b2bd290, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 316f1d7bb11adbf40b12dac9ef2b5b3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 321ec5eeefb098749820e39d4bf869c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pits
+    second: {fileID: 2100000, guid: 4f5f4c951a20fa349b8f471a9f6d60b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpaceShipSide
+    second: {fileID: 2100000, guid: 80658a2d250f0fd45a31d17d479c64ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpaceShipTop
+    second: {fileID: 2100000, guid: f9865e3af06958247991b15ad47bbd8a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
