@@ -27,6 +27,7 @@ public class PlayerMaterial : MonoBehaviour
 
     void Start()
     {
+        material = 100;
         inputSystem = FindObjectOfType<InputSystem>(); //assigns the input system script so it can be used
     }
 
