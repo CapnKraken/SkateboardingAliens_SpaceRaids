@@ -35,8 +35,12 @@ public class StandardGun : ManagedObject
     /// </summary>
     private bool isFiring;
 
+    private float spread;
+
     protected override void Initialize()
     {
+        spread = 3f;
+
         isFiring = false;
 
         fireTimer = 0;
@@ -67,13 +71,28 @@ public class StandardGun : ManagedObject
 
     private void FireGun()
     {
-        Vector3 newRotation = transform.rotation.eulerAngles + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), Random.Range(-3f, 3f));
+        Vector3 newRotation = transform.rotation.eulerAngles + new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread), Random.Range(-spread, spread));
         //Spawn the player bullet
         PlayerBullet p = Instantiate(bulletPrefab, transform.position + transform.forward * 2, Quaternion.Euler(newRotation)).GetComponent<PlayerBullet>();
         p.SetVars(speed, damage);
 
         //destroy the projectile after 7 seconds
         Destroy(p.gameObject, 7.0f);
+    }
+
+    public void ChangeFireSpeed(float amount)
+    {
+        speed += amount;
+    }
+
+    public void ChangeDamage(float amount)
+    {
+        damage += amount;
+    }
+
+    public void ChangeSpread(float amount)
+    {
+        spread += amount;
     }
 
     #endregion

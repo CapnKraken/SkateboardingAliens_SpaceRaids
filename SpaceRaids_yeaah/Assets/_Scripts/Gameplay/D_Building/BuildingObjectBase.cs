@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class BuildingObjectBase : ManagedObject
 {
-    //Made by Donovan
-    public float health, maxHealth, materialCost;
+    //Made by Donovan - this class is not used by anything anymore and can be deleted. it was causing too much trouble and making separate building classes without inheritance workrd much better
+    /*public static float health, maxHealth, materialCost;
     public abstract float MaxHealth();
     public abstract float BuildingHealth();
     public abstract float MaterialCost();
@@ -33,6 +33,7 @@ public abstract class BuildingObjectBase : ManagedObject
 
     public virtual void Update()
     {
+        Debug.Log(gameObject.name + health + maxHealth);
         if(health <= 0)
         {
             Destroy(gameObject);
@@ -55,6 +56,6 @@ public abstract class BuildingObjectBase : ManagedObject
     public override string GetLoggingData()
     {
         return name;
-    }
+    }*/
 
 }
