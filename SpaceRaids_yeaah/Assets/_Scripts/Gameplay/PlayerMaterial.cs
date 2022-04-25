@@ -27,18 +27,19 @@ public class PlayerMaterial : MonoBehaviour
 
     void Start()
     {
+        material = 100;
         inputSystem = FindObjectOfType<InputSystem>(); //assigns the input system script so it can be used
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        materialText.text = $"Material: {Mathf.Round(material)}"; //keeps the amount of material text in top left corner updated
         if (!GameManager.Instance.pauseManager.isPaused()) //if it's not paused
         {
             harvestInput = inputSystem.harvest; //gets the input value from InputSystem
 
-            materialText.text = $"Material: {Mathf.Round(material)}"; //keeps the amount of material text in top left corner updated
+            
 
             if (selectionTransform != null)
             {

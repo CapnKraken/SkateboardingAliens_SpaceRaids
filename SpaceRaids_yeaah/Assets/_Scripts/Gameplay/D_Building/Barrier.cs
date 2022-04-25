@@ -2,20 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barrier : BuildingObjectBase
+public class Barrier : MonoBehaviour
 {
-    public override float MaxHealth()
+    public static float health, maxHealth, materialCost;
+
+    void Start()
     {
-        return 75;
+        health = 75;
+        maxHealth = 75;
+        materialCost = 2;
     }
 
-    public override float BuildingHealth()
+    public void changeHealth(float amount)
     {
-        return 75;
+        health += amount;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        if (health < 0)
+        {
+            health = 0;
+        }
+    }
+    public static void ChangeBarrierMaxHealth(float amount)
+    {
+        maxHealth += amount;
     }
 
-    public override float MaterialCost()
+    public void Update()
     {
-        return 2;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "M_BasicEnemy")
+        {
+            changeHealth(0 - Random.Range(5, 10));
+        }
     }
 }

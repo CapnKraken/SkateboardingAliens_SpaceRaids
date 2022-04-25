@@ -22,6 +22,9 @@ public class PauseMenuButton : MonoBehaviour
             case "Config":
                 p.SwitchPauseScreen(2);
                 break;
+            case "Upgrades":
+                p.SwitchPauseScreen(3);
+                break;
             default:break;
         }
     }
