@@ -15,7 +15,7 @@ public class PlayerMaterial : MonoBehaviour
     public InputSystem inputSystem; //variable for the input system script
     private int harvestInput; //controller value
 
-    private static float material = 100; //amount of material
+    private static float material = 0; //amount of material
 
     public Text materialText; //text for displaying amount of material
 
@@ -34,12 +34,12 @@ public class PlayerMaterial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        materialText.text = $"Material: {Mathf.Round(material)}"; //keeps the amount of material text in top left corner updated
+
         if (!GameManager.Instance.pauseManager.isPaused()) //if it's not paused
         {
             harvestInput = inputSystem.harvest; //gets the input value from InputSystem
 
-            
+            materialText.text = $"Material: {Mathf.Round(material)}"; //keeps the amount of material text in top left corner updated
 
             if (selectionTransform != null)
             {
@@ -84,9 +84,9 @@ public class PlayerMaterial : MonoBehaviour
                 }
                 else if (selectionTransform.CompareTag("Animal"))
                 {
-                    if (timer >= 2)
+                    if (timer >= .01)
                     {
-                        changeMaterial(25);
+                        changeMaterial(1);
                         wipeTexture();
                         Destroy(selectionTransform.gameObject);
                         timer = 0;
@@ -124,15 +124,15 @@ public class PlayerMaterial : MonoBehaviour
         }
     }
 
-    public float GetMaterialAmount()
-    {
-        return material;
-    }
-
     public void wipeTexture() //removes stored texture value;
     {
         saveMaterial = null;
         saveM = false;
+    }
+
+    public float GetMaterialAmount()
+    {
+        return material;
     }
 
 }
