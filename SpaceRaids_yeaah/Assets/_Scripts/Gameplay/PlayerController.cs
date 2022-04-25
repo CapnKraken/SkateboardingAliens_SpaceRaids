@@ -137,6 +137,12 @@ public class PlayerController : ManagedObject
         #endregion
     }
 
+    public void ChangeMaxSpeed(float amount)
+    {
+        maxSpeed += amount;
+        walkingSpeed += amount;
+    }
+
     //Perform the player's physics update
     private void FixedUpdate()
     {

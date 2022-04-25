@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : BuildingObjectBase
+public class Turret : MonoBehaviour
 {
     [Tooltip("Fire rate in shots per second.")]
     public float fireRate;
@@ -24,55 +24,55 @@ public class Turret : BuildingObjectBase
 
     private bool isFiring;
 
-    public override float MaxHealth()
-    {
-        return 75;
-    }
+    public static float health, maxHealth, materialCost;
 
-    public override float BuildingHealth()
+    void Start()
     {
-        return 75;
-    }
+        health = 75;
+        maxHealth = 75;
+        materialCost = 2;
 
-    public override float MaterialCost()
-    {
-        return 10;
-    }
-
-    protected override void Initialize()
-    {
         fireRate = 25;
         speed = 20;
         damage = 100;
 
         targetInRange = turretRadius.GetComponent<TurretRadius>().targetInRange;
-        //target = turretRadius.GetComponent<TurretRadius>().target;
 
         isFiring = false;
 
         fireTimer = 0;
 
         fireDelay = 1 / fireRate;
-
-        //bulletPrefab = Resources.Load("Assets/Prefabs/Projectiles.Turretbullet", GameObject) as GameObject;
     }
 
-    public override void Update()
+    public void changeHealth(float amount)
     {
-        
-        
-        if (BuildingHealth() <= 0)
+        health += amount;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        if (health < 0)
+        {
+            health = 0;
+        }
+    }
+
+    public void Update()
+    {
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
 
-        if(turretRadius.GetComponent<TurretRadius>().target != null && BuildingHealth() != 0)
+        if (turretRadius.GetComponent<TurretRadius>().target != null && health != 0)
         {
-            if(turretRadius.GetComponent<TurretRadius>().targetInRange == true)
+            if (turretRadius.GetComponent<TurretRadius>().targetInRange == true)
             {
-                 //targetInRange = true;
+                //targetInRange = true;
                 pivot.transform.LookAt(turretRadius.GetComponent<TurretRadius>().target.transform);
-                
+
                 isFiring = true;
             }
             else
@@ -91,7 +91,7 @@ public class Turret : BuildingObjectBase
 
 
         if (isFiring)
-       {
+        {
             fireTimer -= Time.deltaTime;
             if (fireTimer <= 0)
             {
@@ -100,7 +100,39 @@ public class Turret : BuildingObjectBase
                 Shoot();
             }
         }
-        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "M_BasicEnemy")
+        {
+            changeHealth(0 - Random.Range(5, 10));
+        }
+    }
+
+   
+    public void changeTurretHealth(float amount)
+    {
+        health += amount;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        if (health < 0)
+        {
+            health = 0;
+        }
+    }
+
+    public void ChangeTurretMaxHealth(float amount)
+    {
+        maxHealth += amount;
+    }
+
+    public void ChangeTurretSpeed(float amount)
+    {
+        speed += amount;
     }
 
     private void Shoot()
